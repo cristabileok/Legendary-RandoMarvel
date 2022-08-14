@@ -17,9 +17,7 @@ Press on the Results to get more info:
 
 - If you press on a Scheme, you can see its description and keywords. If the Scheme has a Transform or Unveil ability, you can use it from here!
 
-<img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556034-d6fa6cee-b8f2-4c18-aadd-60d027248611.jpeg" width=300 height=511 />
-
-<img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556048-975a18c8-02a9-487a-9a1e-35078601e3e9.jpeg" width=300 height=511 />
+<img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556034-d6fa6cee-b8f2-4c18-aadd-60d027248611.jpeg" width=300 height=511 /> <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556048-975a18c8-02a9-487a-9a1e-35078601e3e9.jpeg" width=300 height=511 />
 
 - If you press on a Mastermind, Villains, Hechmen o Heroes category, you can see their keywords.
 
