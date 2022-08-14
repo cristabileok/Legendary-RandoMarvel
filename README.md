@@ -13,6 +13,8 @@ Select a particular category to randomize it on its own, or to randomize again a
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556028-76829e1c-8463-4d6e-af10-7f5f377aae42.jpeg" width=300 height=511 />
 
+<b>Descriptions and Keywords</b>
+
 Press on the Results to get more info:
 
 - If you press on a Scheme, you can see its description and keywords. If the Scheme has a Transform or Unveil ability, you can use it from here!
@@ -23,10 +25,20 @@ Press on the Results to get more info:
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556052-62cac1a9-1b04-4ec4-9c30-f7bba115cf30.jpeg" width=300 height=511 />
 
+<b>Search Function</b>
+
 Use the Search Function to search for Schemes, Mastermind, Villains, Henchmen, Heroes or Keywords.
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556057-837d9462-3e96-4010-8171-6126307e0b58.jpeg" width=300 height=511 />
 
+<b>Save and Load Games</b>
+
 You can save a Game Setup for later, even if you close the app or turn down your phone!
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556065-fc11bc2b-cee9-4c2f-9ff9-d6d5448c6e8d.jpeg" width=300 height=511 />
+
+<b>Disclaimer</b>
+  <br>
+  I don not own Marvel nor Marvel Legendary.
+  <br>
+  The Mastermins, Villains, Henchmen and Heroes in this App's database are just a subset of those included in the licensed game, just those I use for my own custom, easy to carry around, game.
