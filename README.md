@@ -19,11 +19,11 @@ Press on the Results to get more info:
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556034-d6fa6cee-b8f2-4c18-aadd-60d027248611.jpeg" width=300 height=511 /> <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556048-975a18c8-02a9-487a-9a1e-35078601e3e9.jpeg" width=300 height=511 />
 
-- If you press on a Mastermind, Villains, Hechmen o Heroes category, you can see their keywords.
+- If you press on a Mastermind, Villains, Hechmen o Heroes category, you can see their Keywords.
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556052-62cac1a9-1b04-4ec4-9c30-f7bba115cf30.jpeg" width=300 height=511 />
 
-Use the Search Function to search for Schemes, Mastermind, Villains, Henchmen, Heroes or Keywords!
+Use the Search Function to search for Schemes, Mastermind, Villains, Henchmen, Heroes or Keywords.
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556057-837d9462-3e96-4010-8171-6126307e0b58.jpeg" width=300 height=511 />
 
