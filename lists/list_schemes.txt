@@ -1353,7 +1353,7 @@ You may spend 2 Recruit to rescue a Bystander from the HQ.
 ---
 Twist
 --
-KO all Bystanders in the HQ. Then each player reveals an https://cf.geekdo-static.com/mbs/mb_26284_0.png Hero or KOs a Bystander from their Victory Pile.
+KO all Bystanders in the HQ. Then each player reveals an [Instinct] Hero or KOs a Bystander from their Victory Pile.
 ---
 Evil Wins
 --
