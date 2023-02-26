@@ -33,7 +33,7 @@ Use the Search Function to search for Schemes, Mastermind, Villains, Henchmen, H
 
 <b>Save and Load Games</b>
 
-You can save a Game Setup for later, even if you close the app or turn down your phone!
+You can save a Game Setup for later, even if you close the app or turn off your phone!
 
 <img alt="Legendary RandoMarvel cap1" src="https://user-images.githubusercontent.com/98287876/184556065-fc11bc2b-cee9-4c2f-9ff9-d6d5448c6e8d.jpeg" width=300 height=511 />
 
@@ -41,4 +41,4 @@ You can save a Game Setup for later, even if you close the app or turn down your
   <br>
   I don not own Marvel nor Marvel Legendary.
   <br>
-  The Mastermins, Villains, Henchmen and Heroes in this App's database are just a subset of those included in the licensed game, just those I use for my own custom, easy to carry around, game.
+  The Mastermins, Villains, Henchmen and Heroes in this App's database are just a subset of those included in the licensed game, just the ones I use for my own custom, easy to carry around, game.
