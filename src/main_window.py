@@ -26,145 +26,147 @@ from .database import (
     keywords_names
 )
 
-vilnum = 1
-hennum = 1
-hernum = 1
+from .functions.create_keywords_list import create_keywords_list
+from .functions.create_this_scheme_description import create_this_scheme_description
+from .functions.search_input import search_input
+from .functions.load_and_save import load_game, save_game
+
+number_of_villains = 1
+number_of_henchmen = 1
+number_of_heroes = 1
 
 class Main_Window(Screen):
     
-           
-    def Player1(self):
-        global vilnum
-        global hennum
-        global hernum
-        vilnum = 1
-        hennum = 1
-        hernum = 3
+    def set_player_1(self):
+        global number_of_villains
+        global number_of_henchmen
+        global number_of_heroes
+        number_of_villains = 1
+        number_of_henchmen = 1
+        number_of_heroes = 3
 
-    def Player2(self):
-        global vilnum
-        global hennum
-        global hernum
-        vilnum = 1
-        hennum = 1
-        hernum = 5
+    def set_player_2(self):
+        global number_of_villains
+        global number_of_henchmen
+        global number_of_heroes
+        number_of_villains = 1
+        number_of_henchmen = 1
+        number_of_heroes = 5
 
-    def Player3(self):
-        global vilnum
-        global hennum
-        global hernum
-        vilnum = 2
-        hennum = 1
-        hernum = 5
+    def set_player_3(self):
+        global number_of_villains
+        global number_of_henchmen
+        global number_of_heroes
+        number_of_villains = 2
+        number_of_henchmen = 1
+        number_of_heroes = 5
 
-    def Player4(self):
-        global vilnum
-        global hennum
-        global hernum
-        vilnum = 2
-        hennum = 2
-        hernum = 5
+    def set_player_4(self):
+        global number_of_villains
+        global number_of_henchmen
+        global number_of_heroes
+        number_of_villains = 2
+        number_of_henchmen = 2
+        number_of_heroes = 5
 
-    def Randomize(self, tipo):
-        random_item = tipo[random.randint(0,len(tipo)-1)]
-        return random_item
+    
+    def randomize_list(self, type, num):
+        self.change_instructions()
+                
+        list = set()
+        while len(list) < num:
+            list.add(type[random.randint(0,len(type)-1)])
+        list = " / ".join(list)
+        if type == masterminds_names:
+            chance_of_epic = random.randint(1,3)
+            if chance_of_epic == 3:
+                list = "Epic {}".format(list)
+        return list
 
-    def Randomize_lista(self, tipo, num):
-        self.ChangeInstructions()
-        lista = set()
-        while len(lista) < num:
-            lista.add(tipo[random.randint(0,len(tipo)-1)])
-        listaprint = " / ".join(lista)
-        if tipo == masterminds_names:
-            third = random.randint(1,3)
-            if third == 3:
-                listaprint = "Epic {}".format(listaprint)
-        return listaprint
-
-    def Show_Schemes(self,num):
-        self.ids.scheme_lab.text = "{}".format(self.Randomize_lista(schemes_names,num))
+    def show_randomized_schemes(self,num):
+        self.ids.scheme_lab.text = "{}".format(self.randomize_list(schemes_names,num))
         while "|" in self.ids.scheme_lab.text:
-            self.ids.scheme_lab.text = "{}".format(self.Randomize_lista(schemes_names,num))
+            self.ids.scheme_lab.text = "{}".format(self.randomize_list(schemes_names,num))
         
-    def Show_Mastermind(self, num):
-        self.ids.mastermind_lab.text = "{}".format(self.Randomize_lista(masterminds_names,num))
+    def show_randomized_mastermind(self, num):
+        self.ids.mastermind_lab.text = "{}".format(self.randomize_list(masterminds_names,num))
 
-    def Show_Villains(self, num):
-        self.ids.villains_lab.text = "{}".format(self.Randomize_lista(villains_names,num))
+    def show_randomized_villains(self, num):
+        self.ids.villains_lab.text = "{}".format(self.randomize_list(villains_names,num))
 
-    def Show_Henchmen(self, num):
-        if hernum != 3:
-            self.ids.henchmen_lab.text = "{}".format(self.Randomize_lista(henchmen_names,num))
+    def show_randomized_henchmen(self, num):
+        if number_of_heroes != 3:
+            self.ids.henchmen_lab.text = "{}".format(self.randomize_list(henchmen_names,num))
             
         else:
-            self.ids.henchmen_lab.text = "{} (only 3 cards)".format(self.Randomize_lista(henchmen_names,num))
+            self.ids.henchmen_lab.text = "{} (only 3 cards)".format(self.randomize_list(henchmen_names,num))
 
-    def Show_Heroes(self,num):
-        self.ids.heroes_lab.text = "{}".format(self.Randomize_lista(heroes_names,num))
+    def show_randomized_heroes(self,num):
+        self.ids.heroes_lab.text = "{}".format(self.randomize_list(heroes_names,num))
                     
-    def Show_Bystanders(self,num):
+    def show_bystanders(self,num):
         self.ids.bystanders_lab.text = "{}".format(num)
  
 
-    def Show1Scheme(self):
-        self.Show_Schemes(1)
+    def show_1_scheme(self):
+        self.show_randomized_schemes(1)
 
-    def Show1Mastermind(self):
-        self.Show_Mastermind(1)
+    def show_1_mastermind(self):
+        self.show_randomized_mastermind(1)
 
-    def Show1Villain(self):
-        self.Show_Villains(vilnum)
+    def show_1_villain(self):
+        self.show_randomized_villains(number_of_villains)
 
-    def Show1Henchman(self):
-        self.Show_Henchmen(hennum)
+    def show_1_henchman(self):
+        self.show_randomized_henchmen(number_of_henchmen)
 
-    def Show1Heroe(self):
-        self.Show_Heroes(hernum)
+    def show_1_heroe(self):
+        self.show_randomized_heroes(number_of_heroes)
 
-    def Randomize_1P(self):
-        self.Player1()
-        self.Show_Schemes(1)
-        self.Show_Mastermind(1)
-        self.Show_Villains(vilnum)
-        self.Show_Henchmen(hennum)
-        self.Show_Heroes(hernum)
-        self.Show_Bystanders(1)
+    def randomize_1_player(self):
+        self.set_player_1()
+        self.show_randomized_schemes(1)
+        self.show_randomized_mastermind(1)
+        self.show_randomized_villains(number_of_villains)
+        self.show_randomized_henchmen(number_of_henchmen)
+        self.show_randomized_heroes(number_of_heroes)
+        self.show_bystanders(1)
 
-    def Randomize_2P(self):
-        self.Player2()
-        self.Show_Schemes(1)
-        self.Show_Mastermind(1)
-        self.Show_Villains(vilnum)
-        self.Show_Henchmen(hennum)
-        self.Show_Heroes(hernum)
-        self.Show_Bystanders(2)
+    def randomize_2_player(self):
+        self.set_player_2()
+        self.show_randomized_schemes(1)
+        self.show_randomized_mastermind(1)
+        self.show_randomized_villains(number_of_villains)
+        self.show_randomized_henchmen(number_of_henchmen)
+        self.show_randomized_heroes(number_of_heroes)
+        self.show_bystanders(2)
 
-    def Randomize_3P(self):
-        self.Player3()
-        self.Show_Schemes(1)
-        self.Show_Mastermind(1)
-        self.Show_Villains(vilnum)
-        self.Show_Henchmen(hennum)
-        self.Show_Heroes(hernum)
-        self.Show_Bystanders(8)
+    def randomize_3_player(self):
+        self.set_player_3()
+        self.show_randomized_schemes(1)
+        self.show_randomized_mastermind(1)
+        self.show_randomized_villains(number_of_villains)
+        self.show_randomized_henchmen(number_of_henchmen)
+        self.show_randomized_heroes(number_of_heroes)
+        self.show_bystanders(8)
 
-    def Randomize_4P(self):
-        self.Player4()
-        self.Show_Schemes(1)
-        self.Show_Mastermind(1)
-        self.Show_Villains(vilnum)
-        self.Show_Henchmen(hennum)
-        self.Show_Heroes(hernum)
-        self.Show_Bystanders(8)
+    def randomize_4_player(self):
+        self.set_player_4()
+        self.show_randomized_schemes(1)
+        self.show_randomized_mastermind(1)
+        self.show_randomized_villains(number_of_villains)
+        self.show_randomized_henchmen(number_of_henchmen)
+        self.show_randomized_heroes(number_of_heroes)
+        self.show_bystanders(8)
 
             
-    def Reset(self):
-        global vilnum
-        global hennum
-        global hernum
-        vilnum = 1
-        hennum = 1
-        hernum = 1        
+    def reset(self):
+        global number_of_villains
+        global number_of_henchmen
+        global number_of_heroes
+        number_of_villains = 1
+        number_of_henchmen = 1
+        number_of_heroes = 1        
 
         self.ids.instructions.text="Select Number of Players\nor Categories to be Randomized"
         self.ids.scheme_lab.text=''
@@ -174,379 +176,67 @@ class Main_Window(Screen):
         self.ids.heroes_lab.text=''
         self.ids.bystanders_lab.text=''
 
-    def ChangeInstructions(self):
+    def change_instructions(self):
         self.ids.instructions.text="Press on the Results\nto see Descriptions or Keywords"
-
-    def SwitchToKeywords(self):
+    
+    def show_keywords_list(self,carrier,dict,title):
+        self.create_keywords_list(carrier,dict,title)
+        self.go_to_keywords_description()
+    
+    def create_keywords_list(self,carrier,dict,title):        
+        create_keywords_list(self,carrier,dict,title)
+        
+    def go_to_keywords_description(self):
         app = App.get_running_app()
         app.root.get_screen("main_window").manager.transition.direction = "left"
         app.root.get_screen("main_window").manager.current = "keywords_window"
-
-               
-    def ShowKeywords(self,carrier,dict,title):
-                        
-        if carrier == "":
-            pass
-        else:
-            app = App.get_running_app()
-                        
-            app.root.get_screen("keywords_window").ids.accordion_container.clear_widgets()
-
-            TempCarriers_text_clean = carrier.replace("Epic ","").replace(" (only 3 cards)","")
-
-            if title == "Mastermind" or title in masterminds_names:
-                app.root.get_screen("keywords_window").ids.keywords_title.text = "{}'s Keywords".format(title)
-                app.root.get_screen("keywords_window").ids.keywords_title.background_color=(119/255.0, 50/255.0, 168/255.0,1)
-                #app.root.get_screen("keywords_window").ids.emptylabel.background_color=(119/255.0, 50/255.0, 168/255.0,1)
-            elif title == "Villains" or title in villains_names:
-                app.root.get_screen("keywords_window").ids.keywords_title.text = "{}' Keywords".format(title)
-                app.root.get_screen("keywords_window").ids.keywords_title.background_color=(1,0,0,1)
-                #app.root.get_screen("keywords_window").ids.emptylabel.background_color=(1,0,0,1)
-            elif title == "Henchmen" or title in henchmen_names:
-                app.root.get_screen("keywords_window").ids.keywords_title.text = "{}'s Keywords".format(title)
-                app.root.get_screen("keywords_window").ids.keywords_title.background_color=(235/255.0, 156/255.0, 38/255.0,1)
-                #app.root.get_screen("keywords_window").ids.emptylabel.background_color=(235/255.0, 156/255.0, 38/255.0,1)
-            else:
-                app.root.get_screen("keywords_window").ids.keywords_title.text = "{}' Keywords".format(title)
-                app.root.get_screen("keywords_window").ids.keywords_title.background_color=(48/255.0,99/255.0,194/255.0,1)
-                #app.root.get_screen("keywords_window").ids.emptylabel.background_color=(48/255.0,99/255.0,194/255.0,1)
-
-            TempCarriers = TempCarriers_text_clean.split(" / ")
             
-            AllKeywords = []
-            for Carrier in TempCarriers:
-                AllKeywords.append(dict[Carrier])
-            KeywordsList = [item for sublist in AllKeywords for item in sublist]
-            TempKeywords_set = sorted(set(KeywordsList))
+    def show_masterminds_keywords(self):
+        carrier_text = self.ids.mastermind_lab.text
+        dict = masterminds_dict
+        title = "Mastermind"
+        self.show_keywords_list(carrier_text,dict,title)
 
-            if len(TempKeywords_set) == 0:
-                if title == "Villains" or title == "Henchmen" or title == "Heroes":
-                    empty = Label(text="These {} have no Keywords".format(title), valign = 'center', halign = 'center')
-                else:
-                    empty = Label(text="{} has no Keywords".format(TempCarriers_text_clean), valign = 'center', halign = 'center')
-                app.root.get_screen("keywords_window").ids.accordion_container.add_widget(empty)
+    def show_villains_keywords(self):
+        carrier_text = self.ids.villains_lab.text
+        dict = villains_dict
+        title = "Villains"
+        self.show_keywords_list(carrier_text,dict,title)
 
-            else:
+    def show_henchmen_keywords(self):
+        carrier_text = self.ids.henchmen_lab.text
+        dict = henchmen_dict
+        title = "Henchmen"
+        self.show_keywords_list(carrier_text,dict,title)
 
-                KeysAccordion = Accordion(orientation = "vertical")
-                app.root.get_screen("keywords_window").ids.accordion_container.add_widget(KeysAccordion)
-                                        
-                for kw in TempKeywords_set:
-                    
-                    item = AccordionItem(title="{}".format(kw))
-                    KeysAccordion.add_widget(item)
-
-                    if kw == TempKeywords_set[0]:
-                        item.collapse=False
-                    
-                    scroll = ScrollView()
-                    item.add_widget(scroll)
-                    
-                    label = Label_Scroll()
-                    label.text = "{}".format(keywords_dict[kw])
-                    scroll.add_widget(label)
-
-            self.SwitchToKeywords()
+    def show_heroes_keywords(self):
+        carrier_text = self.ids.heroes_lab.text
+        dict = heroes_dict
+        title = "Heroes"
+        self.show_keywords_list(carrier_text,dict,title)
 
 
-    def MastermindsKeywords(self):
-        TempCarriers_text = self.ids.mastermind_lab.text
-        Dict = masterminds_dict
-        Title = "Mastermind"
-        self.ShowKeywords(TempCarriers_text,Dict,Title)
-
-    def VillainsKeywords(self):
-        TempCarriers_text = self.ids.villains_lab.text
-        Dict = villains_dict
-        Title = "Villains"
-        self.ShowKeywords(TempCarriers_text,Dict,Title)
-
-    def HenchmenKeywords(self):
-        TempCarriers_text = self.ids.henchmen_lab.text
-        Dict = henchmen_dict
-        Title = "Henchmen"
-        self.ShowKeywords(TempCarriers_text,Dict,Title)
-
-    def HeroesKeywords(self):
-        TempCarriers_text = self.ids.heroes_lab.text
-        Dict = heroes_dict
-        Title = "Heroes"
-        self.ShowKeywords(TempCarriers_text,Dict,Title)
-
-
-    def SchemeDescriptThis(self,Scheme):
-        
-        if Scheme == "":
-            pass
-        else:
-            app = App.get_running_app()
-                        
-            app.root.get_screen("scheme_window").ids.scheme_container.clear_widgets()
-
-            app.root.get_screen("scheme_window").ids.scheme_title.text="{}".format(Scheme.replace("|",""))
-            app.root.get_screen("scheme_window").ids.scheme_title.background_color=(45/255.0, 145/255.0, 73/255.0, 1)
-
-            ItemsAccordion = Accordion(orientation = "vertical")
-            app.root.get_screen("scheme_window").ids.scheme_container.add_widget(ItemsAccordion)
-
-            try:
-                content = schemes_dict_desc[Scheme].split("\n---\n")
-
-            except KeyError:
+    def create_this_scheme_description(self,scheme):        
+        create_this_scheme_description(self,scheme)
                 
-                Scheme = "".join(["|", Scheme])
-                content = schemes_dict_desc[Scheme].split("\n---\n")
-
-            for item in content:
-                title,description = item.split("\n--\n")
-                
-                accordionitem = AccordionItem(title="{}".format(title))
-                ItemsAccordion.add_widget(accordionitem)
-
-                scroll = ScrollView()
-                accordionitem.add_widget(scroll)
-                if item == content[0]:
-                    accordionitem.collapse=False
-                
-                label = Label_Scroll()
-                label.text = "{}".format(description)
-                scroll.add_widget(label)
-
-            keywords = schemes_dict_keys[Scheme]
-
-            if len(keywords) != []:
-                for kw in keywords:
-                    if "Scheme Transforms" in kw:
-                        SchTranTitle, SchTranTarget = kw.split(":")
-                        button = Button(size_hint_y = .15)
-                        button.text="{}".format(kw.replace("|","").replace(":",":\n"))
-                        button.background_color= (45/255, 145/255, 73/255, 1)
-                        schemetransform = lambda : self.SchemeDescriptThis(SchTranTarget)
-                        button.on_release = schemetransform
-                        app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
-
-                    elif "Veiled Scheme" in kw:
-                        unveiled_schemes = [item for item in schemes_names if "|..." in item]
-
-                        #[ expression for item in iterable if condition ]
-
-                        randomizer = random.randint(0,len(unveiled_schemes)-1)
-                        chosen_scheme = unveiled_schemes[randomizer]
-
-                        button = Button(size_hint_y = .15)
-                        button.text="Unveil Scheme"
-                        button.background_color= (45/255, 145/255, 73/255, 1)
-                        schemetransform = lambda : self.SchemeDescriptThis(chosen_scheme)
-                        button.on_release = schemetransform
-                        app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
-
-
-                    else:
-
-                        item = AccordionItem(title="{}".format(kw))
-                        ItemsAccordion.add_widget(item)
-
-                        scroll = ScrollView()
-                        item.add_widget(scroll)
-
-                        label = Label_Scroll()
-                        label.text = "{}".format(keywords_dict[kw])
-                        
-                                        
-                        scroll.add_widget(label)
-
-
-
-            app = App.get_running_app()
-            app.root.get_screen("main_window").manager.transition.direction = "left"
-            app.root.get_screen("main_window").manager.current = "scheme_window"
-            self.ids.scheme_lab.text = "{}".format(Scheme.replace("|",""))
-
-    def SchemeDescription(self):
-        
+    def go_to_scheme_description(self):
         scheme = self.ids.scheme_lab.text
-        self.SchemeDescriptThis(scheme)
+        self.create_this_scheme_description(scheme)
 
-    def Search_input(self):
-
-        app = App.get_running_app()
-        input = (app.root.get_screen("search_window").ids.textinput.text).lower()
-        
-        app.root.get_screen("search_window").ids.search_container.clear_widgets()
-
-        if len(input) <= 3:
-            pass
-
-        else:
-
-            button = {}
-            button_list = []
-            content_list = {}
-            show_desc = {}
-            show_keys = {}
-            
-            for name in schemes_names:
-                if (input in name.lower()) or (input in str(schemes_dict_desc[name]).lower()) or (input in str(schemes_dict_keys[name]).lower()):
-                    
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
-                    
-                    button[name].text="{}".format(name.replace("|",""))
-                    button[name].background_color= (45/255, 145/255, 73/255, 1)
-
-
-            for item in button_list:
-                show_desc[item] = lambda item : self.SchemeDescriptThis(content_list[item])
-                item.bind(on_release = show_desc[item])
-
-            button_list = []
-
-            for name in masterminds_names:
-                if (input in name.lower()) or (input in str(masterminds_dict[name]).lower()):
-                    
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
-                    
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (119/255.0, 50/255.0, 168/255.0,1)
-                    
-            for item in button_list:
-                show_keys[item] = lambda item : self.ShowKeywords(content_list[item],masterminds_dict,content_list[item])
-                item.bind(on_release = show_keys[item])
-
-            button_list = []        
-
-            for name in villains_names:
-                if (input in name.lower()) or (input in str(villains_dict[name]).lower()):
-                    
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
-                    
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (1,0,0,1)
-                    
-            for item in button_list:
-                show_keys[item] = lambda item : self.ShowKeywords(content_list[item],villains_dict,content_list[item])
-                item.bind(on_release = show_keys[item])
-
-            button_list = []    
-
-
-            for name in henchmen_names:
-                if (input in name.lower()) or (input in str(henchmen_dict[name]).lower()):
-                    
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
-                    
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (235/255.0, 156/255.0, 38/255.0,1)
-                    
-            for item in button_list:
-                show_keys[item] = lambda item : self.ShowKeywords(content_list[item],henchmen_dict,content_list[item])
-                item.bind(on_release = show_keys[item])
-
-            button_list = []
-            for name in heroes_names:
-                
-                if (input in name.lower()) or (input in str(heroes_dict[name]).lower()):
-                                                    
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
-                    
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (48/255.0,99/255.0,194/255.0,1)
-                                                                
-            for item in button_list:
-                show_keys[item] = lambda item : self.ShowKeywords(content_list[item],heroes_dict,content_list[item])
-                item.bind(on_release = show_keys[item])
-
-            button_list = []
-
-
-            def KeywordDescriptThis(Keyword):
-                app = App.get_running_app()
-                app.root.get_screen("scheme_window").ids.scheme_container.clear_widgets()
-
-                app.root.get_screen("scheme_window").ids.scheme_title.text="{}".format(Keyword)
-                app.root.get_screen("scheme_window").ids.scheme_title.background_color=(0,0,8/10.0,1)
-
-                scroll = ScrollView()
-                app.root.get_screen("scheme_window").ids.scheme_container.add_widget(scroll)
-
-                label = Label_Scroll()
-                label.text = "{}".format(keywords_dict[Keyword])
-                scroll.add_widget(label)
-
-                app = App.get_running_app()
-                app.root.get_screen("main_window").manager.transition.direction = "left"
-                app.root.get_screen("main_window").manager.current = "scheme_window" 
-
-
-            for name in keywords_names:
-                if "Scheme Transforms" in name:
-                    pass
-                elif (input in name) or (input.capitalize() in name) or (input.upper() in name) or (input.lower() in name) or (input.title() in name):
-                    
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
-                    
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (0,0,8/10.0,1)
-                    
-            for item in button_list:
-                show_keys[item] = lambda item : KeywordDescriptThis(content_list[item])
-                item.bind(on_release = show_keys[item])
-
-            button_list = []                           
-
-
-        
-    def Go_To_Search(self):
+    def search_input(self):
+        search_input(self)
+           
+    def go_to_search(self):
         app = App.get_running_app()
         app.root.get_screen("main_window").manager.transition.direction = "left"
         app.root.get_screen("main_window").manager.current = "search_window"
         app.root.get_screen("search_window").ids.textinput.focus=True
 
-    def Save_Game(self):
-        scheme_save = self.ids.scheme_lab.text
-        mastermind_save = self.ids.mastermind_lab.text
-        villains_save = self.ids.villains_lab.text
-        henchmen_save = self.ids.henchmen_lab.text
-        heroes_save = self.ids.heroes_lab.text
-        bystanders_save = self.ids.bystanders_lab.text
-        lines = [str(vilnum),str(hennum),str(hernum),scheme_save,mastermind_save,villains_save,henchmen_save,heroes_save,bystanders_save]
-        with open(os.path.join(os.path.dirname(__file__),'../lists/saved_game.txt'), 'w') as save:
-            save.write('\n'.join(lines))
+    def save_game(self):
+        save_game(self,number_of_villains,number_of_henchmen,number_of_heroes)
 
-    def Load_Game(self):
-        global vilnum
-        global hennum
-        global hernum
-        load_game = open(os.path.join(os.path.dirname(__file__),'../lists/saved_game.txt'), 'r')
-        if len(load_game.read().splitlines()) != 9:
-            pass
-        else:
-            load_game = open(os.path.join(os.path.dirname(__file__),'../lists/saved_game.txt'), 'r')
-            vilnum,hennum,hernum,scheme_load,mastermind_load,villains_load,henchmen_load,heroes_load,bystanders_load = load_game.read().splitlines()
-            vilnum = int(vilnum)
-            hennum = int(hennum)
-            hernum = int(hernum)
-            self.ids.scheme_lab.text = '{}'.format(scheme_load)
-            self.ids.mastermind_lab.text = '{}'.format(mastermind_load)
-            self.ids.villains_lab.text = '{}'.format(villains_load)
-            self.ids.henchmen_lab.text = '{}'.format(henchmen_load)
-            self.ids.heroes_lab.text = '{}'.format(heroes_load)
-            self.ids.bystanders_lab.text = '{}'.format(bystanders_load)
-            self.ChangeInstructions()
+    def load_game(self):
+        global number_of_villains
+        global number_of_henchmen
+        global number_of_heroes
+        number_of_villains,number_of_henchmen,number_of_heroes = load_game(self)

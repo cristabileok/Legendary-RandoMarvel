@@ -300,6 +300,21 @@ Evil Wins
 When 4 Sidekicks escape.
 ///
 
+>> Corrupt the Spy Agencies[-]Send Undercover , Unleash from Undercover:::
+Setup
+--
+7 Twists
+---
+Twist 1-6
+--
+Each player sends one of their non-grey Heroes Undercover.
+Then each player may Unleash a Hero from Undercover with a lower cost than the one that player just sent Undercover.
+---
+Twist 7
+--
+Evil Wins!
+///
+
 >> Crush them with my Bare Hands:::
 Setup
 --
@@ -314,7 +329,7 @@ Evil Wins
 When 8 Master Strikes have taken effect.
 ///
 
->> Cursed Pages of the Darkhold Tome[-]Artifact:::
+>> Cursed Pages of the Darkhold Tome[-]Artifact , Ritual Artifact:::
 Setup
 --
 11 Twists, representing Cursed Pages of the Darkhold Tome. Add an extra Villain Group.
@@ -637,6 +652,24 @@ Evil Wins
 --
 • When 6 Infinity Gem Villains are in the city and/or the Escape Pile.
 • When a player controls 4 Infinity Gem Artifacts, that player is corrupted by power. That player wins, Evil wins, and all other players lose.
+///
+
+>> Frame Heroes for Murder:::
+Setup
+--
+7 Twists, 6 Heroes
+---
+Twist 1-6
+--
+Stack a card from the HQ next to the Scheme as "Incriminating Evidence" that has a different cost than any card already in that stack.
+---
+Twist 7
+--
+Add any card from the HQ to the Incriminating Evidence
+---
+Evil Wins
+--
+When there are 5 pieces of Incriminating Evidence.
 ///
 
 >> Gladiator Pits of Sakaar:::
@@ -1456,6 +1489,25 @@ Twist 8
 Evil wins!
 ///
 
+>> Seize the Wakandan Throne[-]Throne's Favor:::
+Setup
+--
+6 Twists.
+---
+Twist
+--
+If the Mastermind has the Throne's Favor, they spend it to stack this Twist next to the Scheme as a 'Tribe of Wakanda Defeated'.
+Otherwise, the Mastermind gains the Throne's Favor, shuffle this Twist back into the Villain Deck, and then play a card from the Villain Deck.
+---
+Special Rules
+--
+Whenever you fight the Mastermind, you gain the Throne's Favor.
+---
+Evil Wins
+--
+When the 5 Tribes of Wakanda have been defeated
+///
+
 >> S.H.I.E.L.D. Vs Hydra War[-]Hydra Level , Send Undercover:::
 Setup
 --
@@ -1539,6 +1591,20 @@ Each player discards a non-grey Hero or gains a Wound.
 Twist 6
 --
 Evil Wins
+///
+
+>> Sniper Rifle Assassins[-]Dodge:::
+Setup
+--
+11 Twists, minus 1 Twist per player.
+---
+Twist
+--
+Each player must Dodge with a Hero from their hand, revealing the card they drew. KO each non-grey Hero drawn this way.
+---
+Evil Wins
+--
+When there are four non-grey Heroes per player in the KO pil
 ///
 
 >> Splice Humans with Spider DNA:::
@@ -1889,6 +1955,26 @@ Same effect, but move them all to the right, if possible. (A Villain in the Sewe
 Twist 10
 --
 Evil Wins!
+///
+
+>> Train Black Widows in the Red Room[-]Dark Memories , Send Undercover:::
+Setup
+--
+8 Twists, minus 1 Twist per player.
+Add 8 S.H.I.E.L.D. Officers to the Villain Deck
+---
+Special Rules
+--
+Officers in the Villain Deck and city are "Black Widow Initiate" Villains with 3+A and
+"Dark Memories. Fight: Gain this as an Officer (without Dark Memories) or Send it Undercover".
+---
+Twist
+--
+A Black Widow Initiate enters the city from the Officer Stack. Play another card from the Villain Deck.
+---
+Evil Wins
+--
+When there are 3 Villains per player in the Escape Pile or the Villain Deck runs out
 ///
 
 >> Trap Heroes in the Microverse[-]Size-Changing @:::

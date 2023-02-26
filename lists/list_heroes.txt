@@ -2,8 +2,8 @@ Angel :
 Ant Man : Size-Changing @
 Beast : Berserk , X-Gene @
 Bishop : 
-Black Panther : 
-Black Widow : 
+Black Panther : @ Ambush (on Heroes) , Throne's Favor
+Black Widow : Dark Memories , Dodge , Send Undercover
 Cable : Teleport
 Captain America : 
 Captain Marvel : 
@@ -42,6 +42,7 @@ Ms. America : Investigate for @ , Teleport
 Ms. Marvel : Cheering Crowds , Size-Changing @ , Versatile #
 Nebula : Shards
 Nightcrawler : Teleport
+Princess Shuri : @ Ambush (on Heroes) , Empowered by @
 Professor X : 
 Punisher : 
 Quicksilver : Hyperspeed #
@@ -55,6 +56,7 @@ Spider-Gwen : Wall-Crawl
 Spider-Man : Wall-Crawl
 Spider-Man Noir : Investigate for @
 Starlord : Artifact , Shards
+Stature : Divided Cards , Size-Changing @
 Storm : 
 Thor : Artifact , Thrown Artifact , Worthy
 Ultimate Spider-Man : 

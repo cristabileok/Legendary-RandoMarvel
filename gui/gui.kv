@@ -68,7 +68,7 @@ WindowManager:
                 background_color: 0,0,0,1
 
                 on_release:
-                    root.Go_To_Search()
+                    root.go_to_search()
                     #app.root.current = "search_window"
                     #root.manager.transition.direction = "left"
 
@@ -88,27 +88,27 @@ WindowManager:
             Button:
                 text:"1"
                 background_color: (0,0,8/10.0,1)
-                on_press: root.Randomize_1P()
+                on_press: root.randomize_1_player()
                 
             Button:
                 text:"2"
                 background_color: (0,0,8/10.0,1)
-                on_press: root.Randomize_2P()
+                on_press: root.randomize_2_player()
                             
             Button:
                 text:"3"
                 background_color: (0,0,8/10.0,1)
-                on_press: root.Randomize_3P()
+                on_press: root.randomize_3_player()
                 
             Button:
                 text:"4"
                 background_color: (0,0,8/10.0,1)
-                on_press: root.Randomize_4P()
+                on_press: root.randomize_4_player()
                 
             Button:
                 text:"Reset"
                 background_color: (0.1,0.1,0.1,1)
-                on_press: root.Reset()
+                on_press: root.reset()
                 
         GridLayout:
             cols:2
@@ -124,28 +124,28 @@ WindowManager:
                 Button:
                     text:"Scheme"
                     background_color: (45/255, 145/255, 73/255, 1)
-                    on_press: root.Show1Scheme()
+                    on_press: root.show_1_scheme()
                                         
                 Button:
                     text:"Mastermind"
                     background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                    on_press: root.Show1Mastermind()
+                    on_press: root.show_1_mastermind()
                 
                 Button:
                     text:"Villains"
                     background_color: (1,0,0,1)
-                    on_press: root.Show1Villain()
+                    on_press: root.show_1_villain()
 
                 Button:
                     text:"Henchmen"
                     background_color: (235/255.0, 156/255.0, 38/255.0,1)
-                    on_press: root.Show1Henchman()     
+                    on_press: root.show_1_henchman()     
 
 
                 Button:
                     text:"Heroes"
                     background_color: (48/255.0,99/255.0,194/255.0,1)
-                    on_press:root.Show1Heroe()
+                    on_press:root.show_1_heroe()
 
                 Label:
                     text:"Bystanders"
@@ -167,32 +167,32 @@ WindowManager:
                     id: scheme_lab
                     text:""
                     background_color: (45/255.0, 145/255.0, 73/255.0, 1)
-                    on_release: root.SchemeDescription()
+                    on_release: root.go_to_scheme_description()
                                         
                                                 
                 Button:
                     id: mastermind_lab
                     text:""
                     background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                    on_release: root.MastermindsKeywords()
+                    on_release: root.show_masterminds_keywords()
                                
                 Button:
                     id: villains_lab
                     text:""
                     background_color: (1,0,0,1)
-                    on_release: root.VillainsKeywords()
+                    on_release: root.show_villains_keywords()
                     
                 Button:
                     id: henchmen_lab
                     text:""
                     background_color: (235/255.0, 156/255.0, 38/255.0,1)
-                    on_release: root.HenchmenKeywords()
+                    on_release: root.show_henchmen_keywords()
 
                 Button:
                     id: heroes_lab
                     text:""
                     background_color: (48/255.0,99/255.0,194/255.0,1)
-                    on_release: root.HeroesKeywords()
+                    on_release: root.show_heroes_keywords()
 
                 Label:
                     id: bystanders_lab
@@ -214,12 +214,12 @@ WindowManager:
             Button:
                 text:"Save Game"
                 background_color: (0.1,0.1,0.1,1)
-                on_release: root.Save_Game()
+                on_release: root.save_game()
 
             Button:
                 text:"Load Game"
                 background_color: (0.1,0.1,0.1,1)
-                on_release: root.Load_Game()
+                on_release: root.load_game()
 
 
 
@@ -270,7 +270,7 @@ WindowManager:
                 background_color: 0,0,0,1
 
                 on_release:
-                    root.Go_Search()
+                    root.go_to_search()
                     #app.root.current = "search_window"
                     #root.manager.transition.direction = "left"
 
@@ -333,7 +333,7 @@ WindowManager:
                 background_color: 0,0,0,1
 
                 on_release:
-                    root.Go_Search()
+                    root.go_to_search()
                     #app.root.current = "search_window"
                     #root.manager.transition.direction = "left"
 
@@ -410,11 +410,11 @@ WindowManager:
                 font_size: 35
                 multiline: False
                             
-                on_text_validate: root.Search_Button()
+                on_text_validate: root.search_button()
 
             Button:
                 size_hint:(.2,1)
-                on_release: root.Search_Button()
+                on_release: root.search_button()
                 background_color: (0,0,0,1)
                 
                 Image:

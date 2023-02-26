@@ -12,6 +12,10 @@
 • You might randomly pick the same Tactic that was previously on top, or it might be a different Tactic.
 ///
 
+>> @ Ambush (on Heroes):::
+"When this Hero enters the HQ during your turn, you may use that Ambush ability if you have a @ Hero."
+///
+
 >> Artifact:::
 When you gain an Artifact, put it in your discard pile like any other Hero card.
 When you play that Artifact, yo “control” it.
@@ -102,7 +106,7 @@ Put all the cards back on top in any order”.
 ///
 
 >> Dark Memories:::
-“This gets +1A for each Hero Class among cards in discard pile”.
+“This gets +1A for each Hero Class among cards in your discard pile”.
 ///
 
 >> Demonic Bargain:::
@@ -126,6 +130,13 @@ If that discarded card costs 1 or more, that player is too powerful and arrogant
 But once you play it, the card only counts as the side you chose.
 • A Divided Card is one card, not two.
 So if you have to “discard two cards,” “draw two cards,” or count the number of cards in your hand, a Divided Card only counts as one card.
+///
+
+>> Dodge:::
+"During your turn, you may discard this card from your hand to draw another card".
+• When you Dodge a card, ignore all the other text on that card (unless it specifically mentions Dodging).
+• Dodging a card in not playing it.
+• Cards discarded with Dodge count towards the number of discarded cards this turn.
 ///
 
 >> Dominate:::
@@ -260,6 +271,14 @@ You don’t have to defeat all the Tactic cards that have turned into Locations 
 • If you put a Villain with Bystanders into your Victory Pile, you choose the order.
 ///
 
+>> Ritual Artifact:::
+• See Artifacts. If you have fulfilled the listed Ritual condition this turn, you can discard the Ritual Artifact to get the listed effect.
+• You can activate the Ritual even if the Ritual Artifact wasn't in play when you fulfilled the Ritual condition earlier in the turn.
+• If a card lets you "copy" a Ritual Artifact card or "play a copy of it", then you can use its Ritual effect (or "Thrown Artifact" or "Once per turn" Artifact ability) once, and you don't need to fulfill the ritual condition.
+You don't need to immediatley discard the copy card to use the Ritual.
+The copy doesn't stay in play as an Artifact.
+///
+
 >> Savior:::
 “Use this ability if you have at least 3 Bystanders in your Victory Pile.”
 • If you defeat a Villain with Bystanders, put those Bystanders into your Victory Pile before checking any Savior ability on that Villain.
@@ -369,6 +388,13 @@ In the Escape Pile, they are 2 Unattached Villains again.
 “Instead of playing this card, you may set it aside. At the end of this turn, add it to your new hand as an extra card.”
 ///
 
+>> Throne's Favor:::
+• When you gain the Throne's Favor, take a nearby object to represent the Throne's Favor.
+• If another player or Mastermind already has the Throne's Favor, and you gain it, then you take it from them.
+• Gaining the Throne's Favor is mandatory. You cannot leave it where it is.
+• When you spend the Throne's Favor, you set it aside, and no one has the Throne's Favor until someone gains it again.
+///
+
 >> Thrown Artifact:::
 • See Artifacts. To "throw" a Thrown Artifact, put it on the bottom of your deck and use its ability.
 • You can throw as many Artifacts as you want in a turn. You can only throw during your turn.
@@ -395,6 +421,10 @@ If you complete the challenge, put the Trap in your Victory Pile and get its VP.
 • "While you control this Artifact, every time you do that trigger, you get the listed effect".
 • If a card lets you "copy" a Triggered Artifact card or "play a copy of it," then you can use that Triggered Artifact ability once, and you don't need to fulfill the trigger.
 The copy doesn't stay in play as an Artifact.
+///
+
+>> Unleash from Undercover:::
+"Return it from your Victory Pile to your hand".
 ///
 
 >> Versatile #:::

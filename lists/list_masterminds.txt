@@ -16,8 +16,10 @@ Kingpin : Bribe , Fortify @
 Loki : Shards
 Magneto : Spectrum
 Malekith : Artifact , Thrown Artifact , Villainous Weapon , Worthy
+M.O.D.O.K. : Outwit , Transform , Trap , Wounded Fury
 Mr. Sinister : Trap
 Mysterio : 
+Namor : Empowered by @
 Secretary Alexander Peirce : Fortify @ , S.H.I.E.L.D. Clearance
 Shadow King : Dominate , Soaring Flight , Trap
 Skrull Super-Adaptoid : Adapt

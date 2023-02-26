@@ -3,6 +3,6 @@ from kivy.uix.screenmanager import Screen
 from .main_window import Main_Window
 
 class Scheme_Window(Screen):
-    def Go_Search(self):
+    def go_to_search(self):
         proxy = Main_Window()
-        proxy.Go_To_Search()
+        proxy.go_to_search()
