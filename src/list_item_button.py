@@ -28,6 +28,9 @@ class List_Item_Button(Button):
         if old_text == "":
             new_game_list = new_text
             
+        elif new_text in old_text or old_text in new_text:
+            new_game_list = old_text
+            
         else:        
             new_game_list = old_text + " / " + new_text
         
@@ -44,6 +47,9 @@ class List_Item_Button(Button):
         if old_text == "":
             new_game_list = new_text
             
+        elif new_text in old_text or old_text in new_text:
+            new_game_list = old_text
+                        
         else:        
             new_game_list = old_text + " / " + new_text
         
@@ -60,6 +66,9 @@ class List_Item_Button(Button):
         if old_text == "":
             new_game_list = new_text
             
+        elif new_text in old_text or old_text in new_text:
+            new_game_list = old_text
+            
         else:        
             new_game_list = old_text + " / " + new_text
         
@@ -75,6 +84,9 @@ class List_Item_Button(Button):
         
         if old_text == "":
             new_game_list = new_text
+            
+        elif new_text in old_text or old_text in new_text:
+            new_game_list = old_text
             
         else:        
             new_game_list = old_text + " / " + new_text

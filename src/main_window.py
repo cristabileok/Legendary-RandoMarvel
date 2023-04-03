@@ -159,8 +159,95 @@ class Main_Window(Screen):
         self.show_randomized_henchmen(number_of_henchmen)
         self.show_randomized_heroes(number_of_heroes)
         self.show_bystanders(8)
-
+        
+    def add_random_mastermind(self):
+        self.add_random_element(masterminds_names)
+        
+    def add_random_villain(self):
+        self.add_random_element(villains_names)
+        
+    def add_random_henchman(self):
+        self.add_random_element(henchmen_names)
+        
+    def add_random_heroe(self):
+        self.add_random_element(heroes_names)
+        
+    def add_random_element(self,type):
+        if type == masterminds_names:
+            old_text = self.ids.mastermind_lab.text
+        elif type == villains_names:
+            old_text = self.ids.villains_lab.text
+        elif type == henchmen_names:
+            old_text = self.ids.henchmen_lab.text
+        elif type == heroes_names:
+            old_text = self.ids.heroes_lab.text
             
+        if old_text == "":
+            if type == masterminds_names:
+                self.show_1_mastermind()
+            elif type == villains_names:
+                self.show_1_villain()
+            elif type == henchmen_names:
+                self.show_1_henchman()
+            elif type == heroes_names:
+                self.show_1_heroe()
+                
+        else:        
+            old_set = set(old_text.split(" / "))
+            
+            old_length = len(old_set)
+            
+            while len(old_set) == old_length and len(old_set) < len(type):
+                old_set.add(str(self.randomize_list(type,1)))
+                
+            new_text = " / ".join(old_set)
+            
+            if type == masterminds_names:
+                self.ids.mastermind_lab.text = "{}".format(new_text)
+            elif type == villains_names:
+                self.ids.villains_lab.text = "{}".format(new_text)
+            elif type == henchmen_names:
+                self.ids.henchmen_lab.text = "{}".format(new_text)
+            elif type == heroes_names:
+                self.ids.heroes_lab.text = "{}".format(new_text)
+                
+
+    def reduce_scheme(self):
+        old_text = self.ids.scheme_lab.text
+        list = old_text.split(" / ")
+        _ = list.pop()
+        new_text = " / ".join(list)
+        self.ids.scheme_lab.text = "{}".format(new_text)
+        
+    def reduce_mastermind(self):
+        old_text = self.ids.mastermind_lab.text
+        list = old_text.split(" / ")
+        _ = list.pop()
+        new_text = " / ".join(list)
+        self.ids.mastermind_lab.text = "{}".format(new_text)
+        
+    def reduce_villains(self):
+        old_text = self.ids.villains_lab.text
+        list = old_text.split(" / ")
+        _ = list.pop()
+        new_text = " / ".join(list)
+        self.ids.villains_lab.text = "{}".format(new_text)
+        
+    def reduce_henchmen(self):
+        old_text = self.ids.henchmen_lab.text
+        list = old_text.split(" / ")
+        _ = list.pop()
+        new_text = " / ".join(list)
+        self.ids.henchmen_lab.text = "{}".format(new_text)
+        
+    def reduce_heroes(self):
+        old_text = self.ids.heroes_lab.text
+        list = old_text.split(" / ")
+        _ = list.pop()
+        new_text = " / ".join(list)
+        self.ids.heroes_lab.text = "{}".format(new_text)
+        
+               
     def reset(self):
         global number_of_villains
         global number_of_henchmen
@@ -227,9 +314,6 @@ class Main_Window(Screen):
     def search_input(self):
         search_input(self)
         
-    def set_to_game(self):
-        set_to_game(self)       
-           
     def go_to_search(self):
         app = App.get_running_app()
         app.root.get_screen("main_window").manager.transition.direction = "left"
