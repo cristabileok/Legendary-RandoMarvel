@@ -3,10 +3,12 @@ from kivy.uix.accordion import Accordion, AccordionItem
 from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
 
 import random
 
 from ..label_scroll import Label_Scroll
+from ..list_item_button import List_Item_Button
 
 from ..database import (
     masterminds_names,
@@ -24,6 +26,7 @@ from ..database import (
     keywords_names
 )
 
+
 def search_input(self):
     
         app = App.get_running_app()
@@ -40,108 +43,179 @@ def search_input(self):
 
         else:
 
-            button = {}
-            button_list = []
+            box = {}
+            #button_descript = {}
+            button_descript_list = []
+            button_set_to_game_list = []
             content_list = {}
             show_desc = {}
             show_keys = {}
+            #button_set_to_game = {}
+            #button_add_to_game = {}
             findings_counter = 0
             
             for name in schemes_names:
                 if (input in name.lower()) or (input in str(schemes_dict_desc[name]).lower()) or (input in str(schemes_dict_keys[name]).lower()):
                     
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
+                    box[name] = BoxLayout(orientation='horizontal',spacing=2)
+                    app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
-                    button[name].text="{}".format(name.replace("|",""))
-                    button[name].background_color= (45/255, 145/255, 73/255, 1)
+                    button_descript = Button()
+                    box[name].add_widget(button_descript)
+                    
+                    button_set_scheme_to_game = List_Item_Button(size_hint=(.2,1))
+                    box[name].add_widget(button_set_scheme_to_game)
+                    
+                    
+                    button_descript_list.append(button_descript)
+                    content_list[button_descript] = name
+                    
+                    button_descript.text="{}".format(name.replace("|",""))
+                    button_descript.background_color= (45/255, 145/255, 73/255, 1)
+                    
+                    button_set_scheme_to_game.text="Set"
+                    button_set_scheme_to_game.background_color=(45/255, 145/255, 73/255, 1)
+                                                            
+                    button_set_scheme_to_game.bind(on_release=button_set_scheme_to_game.set_to_game)
+                    
+                    
                     findings_counter += 1
 
 
-            for item in button_list:
+            for item in button_descript_list:
                 show_desc[item] = lambda item : self.create_this_scheme_description(content_list[item])
                 item.bind(on_release = show_desc[item])
+                
+            
 
-            button_list = []
+            button_descript_list = []
 
             for name in masterminds_names:
                 if (input in name.lower()) or (input in str(masterminds_dict[name]).lower()):
                     
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
+                    box[name] = BoxLayout(orientation='horizontal',spacing=2)
+                    app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (119/255.0, 50/255.0, 168/255.0,1)
+                    button_descript = Button()
+                    box[name].add_widget(button_descript)
                     
+                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
+                    
+                    button_add_mastermind_to_game = List_Item_Button(size_hint=(.2,1))
+                    box[name].add_widget(button_add_mastermind_to_game)
+                    
+                    button_descript_list.append(button_descript)
+                    content_list[button_descript] = name
+                    
+                    button_descript.text="{}".format(name)
+                    button_descript.background_color= (119/255.0, 50/255.0, 168/255.0,1)
+                    button_add_mastermind_to_game.text="Add"
+                    button_add_mastermind_to_game.background_color= (119/255.0, 50/255.0, 168/255.0,1)
+                    
+                    button_add_mastermind_to_game.bind(on_release=button_add_mastermind_to_game.add_mastermind_to_game)
+    
+                        
                     findings_counter += 1
                     
-            for item in button_list:
+            for item in button_descript_list:
                 show_keys[item] = lambda item : self.show_keywords_list(content_list[item],masterminds_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
-            button_list = []        
+            button_descript_list = []        
 
             for name in villains_names:
                 if (input in name.lower()) or (input in str(villains_dict[name]).lower()):
                     
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
+                    box[name] = BoxLayout(orientation='horizontal',spacing=2)
+                    app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (1,0,0,1)
+                    button_descript = Button()
+                    box[name].add_widget(button_descript)
+                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
+                    
+                    button_add_villains_to_game = List_Item_Button(size_hint=(.2,1))
+                    box[name].add_widget(button_add_villains_to_game)
+                    
+                    button_descript_list.append(button_descript)
+                    content_list[button_descript] = name
+                    
+                    button_descript.text="{}".format(name)
+                    button_descript.background_color= (1,0,0,1)
+                    button_add_villains_to_game.text="Add"
+                    button_add_villains_to_game.background_color= (1,0,0,1)
+                    
+                    button_add_villains_to_game.bind(on_release=button_add_villains_to_game.add_villains_to_game)
                     
                     findings_counter += 1
                     
-            for item in button_list:
+            for item in button_descript_list:
                 show_keys[item] = lambda item : self.show_keywords_list(content_list[item],villains_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
-            button_list = []    
+            button_descript_list = []    
 
 
             for name in henchmen_names:
                 if (input in name.lower()) or (input in str(henchmen_dict[name]).lower()):
                     
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
+                    box[name] = BoxLayout(orientation='horizontal',spacing=2)
+                    app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (235/255.0, 156/255.0, 38/255.0,1)
+                    button_descript = Button()
+                    box[name].add_widget(button_descript)
+                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
+                    
+                    button_add_henchmen_to_game = List_Item_Button(size_hint=(.2,1))
+                    box[name].add_widget(button_add_henchmen_to_game)
+                    
+                    button_descript_list.append(button_descript)
+                    content_list[button_descript] = name
+                    
+                    button_descript.text="{}".format(name)
+                    button_descript.background_color= (235/255.0, 156/255.0, 38/255.0,1)
+                    button_add_henchmen_to_game.text="Add"
+                    button_add_henchmen_to_game.background_color= (235/255.0, 156/255.0, 38/255.0,1)
+                    
+                    button_add_henchmen_to_game.bind(on_release=button_add_henchmen_to_game.add_henchmen_to_game)
                     
                     findings_counter += 1
                     
-            for item in button_list:
+            for item in button_descript_list:
                 show_keys[item] = lambda item : self.show_keywords_list(content_list[item],henchmen_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
-            button_list = []
+            button_descript_list = []
             for name in heroes_names:
                 
                 if (input in name.lower()) or (input in str(heroes_dict[name]).lower()):
                                                     
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
+                    box[name] = BoxLayout(orientation='horizontal',spacing=2)
+                    app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (48/255.0,99/255.0,194/255.0,1)
+                    button_descript = Button()
+                    box[name].add_widget(button_descript)
+                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
+                    
+                    button_add_heroes_to_game = List_Item_Button(size_hint=(.2,1))
+                    box[name].add_widget(button_add_heroes_to_game)
+                    
+                    button_descript_list.append(button_descript)
+                    content_list[button_descript] = name
+                    
+                    button_descript.text="{}".format(name)
+                    button_descript.background_color= (48/255.0,99/255.0,194/255.0,1)
+                    button_add_heroes_to_game.text="Add"
+                    button_add_heroes_to_game.background_color= (48/255.0,99/255.0,194/255.0,1)
+                    
+                    button_add_heroes_to_game.bind(on_release=button_add_heroes_to_game.add_heroes_to_game)
                     
                     findings_counter += 1
                                                                 
-            for item in button_list:
+            for item in button_descript_list:
                 show_keys[item] = lambda item : self.show_keywords_list(content_list[item],heroes_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
-            button_list = []
+            button_descript_list = []
             
             if findings_counter == 0:
                 label = Label()
@@ -174,16 +248,16 @@ def search_input(self):
                     pass
                 elif (input in name) or (input.capitalize() in name) or (input.upper() in name) or (input.lower() in name) or (input.title() in name):
                     
-                    button[name] = Button()
-                    app.root.get_screen("search_window").ids.search_container.add_widget(button[name])
-                    button_list.append(button[name])
-                    content_list[button[name]] = name
+                    button_descript = Button()
+                    app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
+                    button_descript_list.append(button_descript)
+                    content_list[button_descript] = name
                     
-                    button[name].text="{}".format(name)
-                    button[name].background_color= (0,0,8/10.0,1)
+                    button_descript.text="{}".format(name)
+                    button_descript.background_color= (0,0,8/10.0,1)
                     
-            for item in button_list:
+            for item in button_descript_list:
                 show_keys[item] = lambda item : KeywordDescriptThis(content_list[item])
                 item.bind(on_release = show_keys[item])
 
-            button_list = []        
+            button_descript_list = []        

@@ -30,6 +30,7 @@ from .functions.create_keywords_list import create_keywords_list
 from .functions.create_this_scheme_description import create_this_scheme_description
 from .functions.search_input import search_input
 from .functions.load_and_save import load_game, save_game
+#from .functions.set_to_game import set_to_game
 
 number_of_villains = 1
 number_of_henchmen = 1
@@ -225,6 +226,9 @@ class Main_Window(Screen):
 
     def search_input(self):
         search_input(self)
+        
+    def set_to_game(self):
+        set_to_game(self)       
            
     def go_to_search(self):
         app = App.get_running_app()
