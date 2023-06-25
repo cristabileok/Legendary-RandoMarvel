@@ -121,12 +121,12 @@ WindowManager:
                 spacing: 5
 
                 BoxLayout:
-                    orientation:'horizontal'
+                    orientation:'vertical'
                     spacing: 5
 
-                    Label:
-                        size_hint: (.2,1)
-                        background_color: (0,0,0)
+                    #Label:
+                    #    size_hint: (.2,1)
+                    #    background_color: (0,0,0)
                                                                 
                     Button:
                         text:"Scheme"
@@ -134,94 +134,110 @@ WindowManager:
                         on_press: root.show_1_scheme()
 
                     Button:
-                        size_hint: (.2,1)
+                        #size_hint: (.2,1)
                         text: "-"
                         background_color: (45/255, 145/255, 73/255, 1)
                         on_press: root.reduce_scheme()
 
                 BoxLayout:
-                    orientation:'horizontal'
+                    orientation:'vertical'
                     spacing: 5
 
-                    Button:
-                        size_hint: (.2,1)
-                        text: "+"
-                        background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                        on_press: root.add_random_mastermind()
-                                        
                     Button:
                         text:"Mastermind"
                         background_color: (119/255.0, 50/255.0, 168/255.0,1)
                         on_press: root.show_1_mastermind()
 
-                    Button:
-                        size_hint: (.2,1)
-                        text: "-"
-                        background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                        on_press: root.reduce_mastermind()
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+                        
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (119/255.0, 50/255.0, 168/255.0,1)
+                            on_press: root.add_random_mastermind()
+                    
+                        Button:
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (119/255.0, 50/255.0, 168/255.0,1)
+                            on_press: root.reduce_mastermind()
 
                 BoxLayout:
-                    orientation:'horizontal'
+                    orientation:'vertical'
                     spacing: 5
-                
-                    Button:
-                        size_hint: (.2,1)
-                        text: "+"
-                        background_color: (1,0,0,1)
-                        on_press: root.add_random_villain()
-                
+                                                   
                     Button:
                         text:"Villains"
                         background_color: (1,0,0,1)
                         on_press: root.show_1_villain()
 
-                    Button:
-                        size_hint: (.2,1)
-                        text: "-"
-                        background_color: (1,0,0,1)
-                        on_press: root.reduce_villains()
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (1,0,0,1)
+                            on_press: root.add_random_villain()
+
+                        Button:
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (1,0,0,1)
+                            on_press: root.reduce_villains()
 
                 BoxLayout:
-                    orientation:'horizontal'
+                    orientation:'vertical'
                     spacing: 5
-
-                    Button:
-                        size_hint: (.2,1)
-                        text: "+"
-                        background_color: (235/255.0, 156/255.0, 38/255.0,1)
-                        on_press: root.add_random_henchman()
 
                     Button:
                         text:"Henchmen"
                         background_color: (235/255.0, 156/255.0, 38/255.0,1)
                         on_press: root.show_1_henchman()    
 
-                    Button:
-                        size_hint: (.2,1)
-                        text: "-"
-                        background_color: (235/255.0, 156/255.0, 38/255.0,1) 
-                        on_press: root.reduce_henchmen()
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+                    
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (235/255.0, 156/255.0, 38/255.0,1)
+                            on_press: root.add_random_henchman()
+
+                        Button:
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (235/255.0, 156/255.0, 38/255.0,1) 
+                            on_press: root.reduce_henchmen()
 
                 BoxLayout:
-                    orientation:'horizontal'
+                    orientation:'vertical'
                     spacing: 5
-
-                    Button:
-                        size_hint: (.2,1)
-                        text: "+"
-                        background_color: (48/255.0,99/255.0,194/255.0,1)
-                        on_press: root.add_random_heroe()
 
                     Button:
                         text:"Heroes"
                         background_color: (48/255.0,99/255.0,194/255.0,1)
                         on_press:root.show_1_heroe()
 
-                    Button:
-                        size_hint: (.2,1)
-                        text: "-"
-                        background_color: (48/255.0,99/255.0,194/255.0,1)
-                        on_press: root.reduce_heroes()
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+                    
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (48/255.0,99/255.0,194/255.0,1)
+                            on_press: root.add_random_heroe()
+                        
+                        Button:
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (48/255.0,99/255.0,194/255.0,1)
+                            on_press: root.reduce_heroes()
 
                 Label:
                     text:"Bystanders"

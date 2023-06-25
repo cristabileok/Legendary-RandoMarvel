@@ -54,7 +54,7 @@ You can fight villains with “Bribe” by spending any combination of Attack an
 ///
 
 >> Clone Villains:::
-"Search the Villain Deck for a copy of this Villain, and it enter the city, ignoring any further Clone effects. Shuffle that deck."
+"Search the Villain Deck for a copy of this Villain, and it enters the city, ignoring any further Clone effects. Shuffle that deck."
 ///
 
 >> @ Conqueror #:::
