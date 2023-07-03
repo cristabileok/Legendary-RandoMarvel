@@ -21,7 +21,7 @@ from ..database import (
     keywords_names
 )
 
-def create_keywords_list(self,carrier,dict,title):
+def create_keywords_list(carrier,dict,title):
                         
         if carrier == "":
             pass

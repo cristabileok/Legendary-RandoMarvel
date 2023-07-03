@@ -24,89 +24,89 @@ from ..database import (
     keywords_names
 )
 
-def create_this_scheme_description(self,scheme):
+def create_this_scheme_description(scheme):
         
-        if scheme == "":
-            pass
-        else:
-            app = App.get_running_app()
-                        
-            app.root.get_screen("scheme_window").ids.scheme_container.clear_widgets()
+    if scheme == "":
+        pass
+    else:
+        app = App.get_running_app()
+                    
+        app.root.get_screen("scheme_window").ids.scheme_container.clear_widgets()
 
-            app.root.get_screen("scheme_window").ids.scheme_title.text="{}".format(scheme.replace("|",""))
-            app.root.get_screen("scheme_window").ids.scheme_title.background_color=(45/255.0, 145/255.0, 73/255.0, 1)
+        app.root.get_screen("scheme_window").ids.scheme_title.text="{}".format(scheme.replace("|",""))
+        app.root.get_screen("scheme_window").ids.scheme_title.background_color=(45/255.0, 145/255.0, 73/255.0, 1)
 
-            ItemsAccordion = Accordion(orientation = "vertical")
-            app.root.get_screen("scheme_window").ids.scheme_container.add_widget(ItemsAccordion)
+        ItemsAccordion = Accordion(orientation = "vertical")
+        app.root.get_screen("scheme_window").ids.scheme_container.add_widget(ItemsAccordion)
 
-            try:
-                content = schemes_dict_desc[scheme].split("\n---\n")
+        try:
+            content = schemes_dict_desc[scheme].split("\n---\n")
 
-            except KeyError:
-                
-                scheme = "".join(["|", scheme])
-                content = schemes_dict_desc[scheme].split("\n---\n")
+        except KeyError:
+            
+            scheme = "".join(["|", scheme])
+            content = schemes_dict_desc[scheme].split("\n---\n")
 
-            for item in content:
-                title,description = item.split("\n--\n")
-                
-                accordionitem = AccordionItem(title="{}".format(title))
-                ItemsAccordion.add_widget(accordionitem)
+        for item in content:
+            title,description = item.split("\n--\n")
+            
+            accordionitem = AccordionItem(title="{}".format(title))
+            ItemsAccordion.add_widget(accordionitem)
 
-                scroll = ScrollView()
-                accordionitem.add_widget(scroll)
-                if item == content[0]:
-                    accordionitem.collapse=False
-                
-                label = Label_Scroll()
-                label.text = "{}".format(description)
-                scroll.add_widget(label)
+            scroll = ScrollView()
+            accordionitem.add_widget(scroll)
+            if item == content[0]:
+                accordionitem.collapse=False
+            
+            label = Label_Scroll()
+            label.text = "{}".format(description)
+            scroll.add_widget(label)
 
-            keywords = schemes_dict_keys[scheme]
+        keywords = schemes_dict_keys[scheme]
 
-            if len(keywords) != []:
-                for kw in keywords:
-                    if "Scheme Transforms" in kw:
-                        _ , SchTranTarget = kw.split(":")
-                        button = Button(size_hint_y = .15)
-                        button.text="{}".format(kw.replace("|","").replace(":",":\n"))
-                        button.background_color= (45/255, 145/255, 73/255, 1)
-                        schemetransform = lambda : self.create_this_scheme_description(SchTranTarget)
-                        button.on_release = schemetransform
-                        app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
+        if len(keywords) != []:
+            for kw in keywords:
+                if "Scheme Transforms" in kw:
+                    _ , SchTranTarget = kw.split(":")
+                    button = Button(size_hint_y = .15)
+                    button.text="{}".format(kw.replace("|","").replace(":",":\n"))
+                    button.background_color= (45/255, 145/255, 73/255, 1)
+                    schemetransform = lambda : self.create_this_scheme_description(SchTranTarget)
+                    button.on_release = schemetransform
+                    app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
 
-                    elif "Veiled Scheme" in kw:
-                        unveiled_schemes = [item for item in schemes_names if "|..." in item]
+                elif "Veiled Scheme" in kw:
+                    unveiled_schemes = [item for item in schemes_names if "|..." in item]
 
-                        #[ expression for item in iterable if condition ]
+                    #[ expression for item in iterable if condition ]
 
-                        randomizer = random.randint(0,len(unveiled_schemes)-1)
-                        chosen_scheme = unveiled_schemes[randomizer]
+                    randomizer = random.randint(0,len(unveiled_schemes)-1)
+                    chosen_scheme = unveiled_schemes[randomizer]
 
-                        button = Button(size_hint_y = .15)
-                        button.text="Unveil Scheme"
-                        button.background_color= (45/255, 145/255, 73/255, 1)
-                        schemetransform = lambda : self.create_this_scheme_description(chosen_scheme)
-                        button.on_release = schemetransform
-                        app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
-
-
-                    else:
-
-                        item = AccordionItem(title="{}".format(kw))
-                        ItemsAccordion.add_widget(item)
-
-                        scroll = ScrollView()
-                        item.add_widget(scroll)
-
-                        label = Label_Scroll()
-                        label.text = "{}".format(keywords_dict[kw])
-                        
-                                        
-                        scroll.add_widget(label)
+                    button = Button(size_hint_y = .15)
+                    button.text="Unveil Scheme"
+                    button.background_color= (45/255, 145/255, 73/255, 1)
+                    schemetransform = lambda : self.create_this_scheme_description(chosen_scheme)
+                    button.on_release = schemetransform
+                    app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
 
 
-            app = App.get_running_app()
-            app.root.get_screen("main_window").manager.transition.direction = "left"
-            app.root.get_screen("main_window").manager.current = "scheme_window"
-            self.ids.scheme_lab.text = "{}".format(scheme.replace("|",""))
+                else:
+
+                    item = AccordionItem(title="{}".format(kw))
+                    ItemsAccordion.add_widget(item)
+
+                    scroll = ScrollView()
+                    item.add_widget(scroll)
+
+                    label = Label_Scroll()
+                    label.text = "{}".format(keywords_dict[kw])
+                    
+                                    
+                    scroll.add_widget(label)
+
+
+        app = App.get_running_app()
+        app.root.get_screen("main_window").manager.transition.direction = "left"
+        app.root.get_screen("main_window").manager.current = "scheme_window"
+        app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(scheme.replace("|",""))
