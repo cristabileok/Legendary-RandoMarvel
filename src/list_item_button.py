@@ -16,20 +16,26 @@ class List_Item_Button(Button):
     
         app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(text)
 
+    def get_source(self,category):
+        app = App.get_running_app()
+        match category:
+            case "masterminds":
+                source = app.root.get_screen("main_window").ids.mastermind_lab
+            case "villains":
+                source = app.root.get_screen("main_window").ids.villains_lab
+            case "henchmen":
+                source = app.root.get_screen("main_window").ids.henchmen_lab
+            case "heroes":
+                source = app.root.get_screen("main_window").ids.heroes_lab
+        return source
+
     def add_element_to_game(self,instance,category):
         
-        app = App.get_running_app()
-                
         new_text = self.parent.children[1].text
 
-        if category == "mastermind":
-            old_text = app.root.get_screen("main_window").ids.mastermind_lab.text
-        elif category == "villains":
-            old_text = app.root.get_screen("main_window").ids.villains_lab.text
-        elif category == "henchmen":
-            old_text = app.root.get_screen("main_window").ids.henchmen_lab.text
-        elif category == "heroes":
-          old_text = app.root.get_screen("main_window").ids.heroes_lab.text
+        source = self.get_source(category)
+
+        old_text = source.text
                       
         if old_text == "":
             new_game_list = new_text
@@ -40,38 +46,18 @@ class List_Item_Button(Button):
         else:        
             new_game_list = old_text + " / " + new_text
 
-        if category == "mastermind":
-            app.root.get_screen("main_window").ids.mastermind_lab.text = "{}".format(new_game_list)
-        elif category == "villains":
-            app.root.get_screen("main_window").ids.villains_lab.text = "{}".format(new_game_list)
-        elif category == "henchmen":
-            app.root.get_screen("main_window").ids.henchmen_lab.text = "{}".format(new_game_list)
-        elif category == "heroes":
-            app.root.get_screen("main_window").ids.heroes_lab.text = "{}".format(new_game_list)
-
-        
-    
+        source.text = f"{new_game_list}"
+            
 
     def remove_element_from_game(self,instance,category):
         app = App.get_running_app()
 
         element_to_remove = self.text
 
-        #old_text = ""
-        
-        if category == "scheme":
-            old_text = app.root.get_screen("main_window").ids.scheme_lab.text
-        elif category == "masterminds":
-            old_text = app.root.get_screen("main_window").ids.mastermind_lab.text
-        elif category == "villains":
-            old_text = app.root.get_screen("main_window").ids.villains_lab.text
-        elif category == "henchmen":
-            old_text = app.root.get_screen("main_window").ids.henchmen_lab.text
-        elif category == "heroes":
-            old_text = app.root.get_screen("main_window").ids.heroes_lab.text
-        else:
-            old_text == ""
+        source = self.get_source(category)
 
+        old_text = source.text
+           
         if old_text == "":
             pass
             
@@ -80,14 +66,5 @@ class List_Item_Button(Button):
             old_list.remove(element_to_remove)
             new_game_list = " / ".join(old_list)
 
-        if category == "scheme":
-            app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(new_game_list)            
-        elif category == "masterminds":
-            app.root.get_screen("main_window").ids.mastermind_lab.text = "{}".format(new_game_list)
-        elif category == "villains":
-            app.root.get_screen("main_window").ids.villains_lab.text = "{}".format(new_game_list)
-        elif category == "henchmen":
-            app.root.get_screen("main_window").ids.henchmen_lab.text = "{}".format(new_game_list)
-        elif category == "heroes":
-            app.root.get_screen("main_window").ids.heroes_lab.text = "{}".format(new_game_list)
+        source.text = f"{new_game_list}"
 

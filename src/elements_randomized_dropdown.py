@@ -23,18 +23,6 @@ class ElementsRandomizedDropDown(DropDown):
         label.size_hint_y = None
         label.text = f"Which {category} to remove?"
                 
-        '''if category == "scheme":
-            label.background_color = (45/255, 145/255, 73/255, 1)
-        elif category == "masterminds":
-            label.background_color = (119/255.0, 50/255.0, 168/255.0,1)
-        elif category == "villains":
-            label.background_color = (1,0,0,1)
-        elif category == "henchmen":
-            label.background_color = (235/255.0, 156/255.0, 38/255.0,1)
-        elif category == "heroes":
-            label.background_color = (48/255.0,99/255.0,194/255.0,1)
-        else:
-            pass'''
         label.background_color = (0,0,0,1)
         
         box.height = box.height + 10
@@ -51,18 +39,19 @@ class ElementsRandomizedDropDown(DropDown):
             dict_of_buttons[item].size_hint_y = None
             dict_of_buttons[item].height = 50
             dict_of_buttons[item].auto_width = True
-            if category == "scheme":
-                dict_of_buttons[item].background_color = (45/255, 145/255, 73/255, 1)                
-            elif category == "masterminds":
-                dict_of_buttons[item].background_color = (119/255.0, 50/255.0, 168/255.0,1)
-            elif category == "villains":
-                dict_of_buttons[item].background_color = (1,0,0,1)
-            elif category == "henchmen":
-                dict_of_buttons[item].background_color = (235/255.0, 156/255.0, 38/255.0,1)
-            elif category == "heroes":
-                dict_of_buttons[item].background_color = (48/255.0,99/255.0,194/255.0,1)
-            else:
-                pass
+
+            match category:
+                case "scheme":
+                    dict_of_buttons[item].background_color = (45/255, 145/255, 73/255, 1)                
+                case "masterminds":
+                    dict_of_buttons[item].background_color = (119/255.0, 50/255.0, 168/255.0,1)
+                case "villains":
+                    dict_of_buttons[item].background_color = (1,0,0,1)
+                case "henchmen":
+                    dict_of_buttons[item].background_color = (235/255.0, 156/255.0, 38/255.0,1)
+                case "heroes":
+                    dict_of_buttons[item].background_color = (48/255.0,99/255.0,194/255.0,1)
+
             dict_of_buttons[item].bind(on_release = lambda instance : instance.remove_element_from_game(instance,category))
 
             def delete_yourself(instance):

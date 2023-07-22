@@ -20,6 +20,7 @@ from ..database import (
 
 def add_random_element(type,*game_setup_heroes):
     main_window = App.get_running_app().root.get_screen("main_window")
+    
     if type == masterminds_names:
         old_text = main_window.ids.mastermind_lab.text
     elif type == villains_names:

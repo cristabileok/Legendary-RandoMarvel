@@ -115,7 +115,7 @@ def search_input(self):
                     button_add_mastermind_to_game.text="Add"
                     button_add_mastermind_to_game.background_color= (119/255.0, 50/255.0, 168/255.0,1)
                     
-                    button_add_mastermind_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"mastermind"))
+                    button_add_mastermind_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"masterminds"))
                     
                         
                     findings_counter += 1
