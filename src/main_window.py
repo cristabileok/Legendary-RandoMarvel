@@ -7,6 +7,7 @@ from kivy.uix.scrollview import ScrollView
 
 from .label_scroll import Label_Scroll
 from .player_number_dropdown import PlayerNumberDropDown
+from .elements_randomized_dropdown import ElementsRandomizedDropDown
 from .setup_numbers import SetupNumbers
 
 import os
@@ -35,23 +36,22 @@ from .functions.go_to_keywords_description import go_to_keywords_description
 from .functions.go_to_scheme_description import go_to_scheme_description
 from .functions.go_to_search import go_to_search
 from .functions.load_and_save import load_game, save_game
-from .functions.reduce import reduce_henchmen, reduce_heroes, reduce_mastermind, reduce_scheme, reduce_villains
+from .functions.randomize_n_player import randomize_1_player, randomize_2_player, randomize_3_player, randomize_4_player
 from .functions.reset import reset
+from .functions.select_element_to_delete import select_element_to_delete
+from .functions.select_player_number import select_player_number
 from .functions.show_elements import show_bystanders, show_randomized_henchmen, show_randomized_heroes, show_randomized_mastermind, show_randomized_schemes, show_randomized_villains
 from .functions.show_keywords import show_henchmen_keywords, show_heroes_keywords, show_masterminds_keywords, show_villains_keywords
-from .functions.randomize_n_player import randomize_1_player, randomize_2_player, randomize_3_player, randomize_4_player
+
 
 game_setup = SetupNumbers()
 
 class Main_Window(Screen):
 
     def select_player_number(self):
-        player_number_dropdown = PlayerNumberDropDown()
-        main_window = App.get_running_app().root.get_screen("main_window")
-        player_number_dropdown.open(main_window.ids.select_number_players_button)
-    
-    
+        select_player_number(game_setup)
 
+    
     def show_1_scheme(self):
         show_randomized_schemes(1)
 
@@ -67,6 +67,7 @@ class Main_Window(Screen):
     def show_1_heroe(self):
         show_randomized_heroes(game_setup.number_of_heroes)
 
+
     def randomize_1_player(self):
         randomize_1_player(game_setup)
 
@@ -78,8 +79,7 @@ class Main_Window(Screen):
 
     def randomize_4_player(self):
         randomize_4_player(game_setup)
-    
-            
+                
         
     def add_random_mastermind(self):
         add_random_element(masterminds_names)
@@ -92,31 +92,27 @@ class Main_Window(Screen):
         
     def add_random_heroe(self):
         add_random_element(heroes_names)
-        
-    
-    def reduce_scheme(self):
-        reduce_scheme()
 
-    def reduce_mastermind(self):
-        reduce_mastermind()
-    
-    def reduce_villains(self):
-        reduce_villains()
+    def select_scheme_to_delete(self):
+        select_element_to_delete("scheme")
 
-    def reduce_henchmen(self):
-        reduce_henchmen()
+    def select_masterminds_to_delete(self):
+        select_element_to_delete("masterminds")
 
-    def reduce_heroes(self):
-        reduce_heroes()
-    
+    def select_villains_to_delete(self):
+        select_element_to_delete("villains")
+
+    def select_henchmen_to_delete(self):
+        select_element_to_delete("henchmen")
+
+    def select_heroes_to_delete(self):
+        select_element_to_delete("heroes")
+   
+     
     def reset(self):
         reset(game_setup)
         
-        
-    def go_to_keywords_description(self):
-        go_to_keywords_description()
-
-
+         
     def show_masterminds_keywords(self):
         show_masterminds_keywords()
 
@@ -133,8 +129,12 @@ class Main_Window(Screen):
     def go_to_scheme_description(self):
         go_to_scheme_description()
 
+    def go_to_keywords_description(self):
+        go_to_keywords_description()
+
     def go_to_search(self):
         go_to_search()
+
 
     def save_game(self):
         save_game(game_setup.number_of_villains,game_setup.number_of_henchmen,game_setup.number_of_heroes)

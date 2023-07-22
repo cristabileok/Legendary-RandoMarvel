@@ -9,7 +9,6 @@ class SetupNumbers():
         self.number_of_henchmen = 1
         self.number_of_heroes = 3
 
-
     def set_player_2(self):
         self.number_of_villains = 1
         self.number_of_henchmen = 1

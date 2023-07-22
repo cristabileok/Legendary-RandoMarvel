@@ -7,31 +7,14 @@ WindowManager:
     Scheme_Window:
     Search_Window:
 
-<PlayerNumberDropDown>
-    Button:
-        text: '1'
-        size_hint_y: None
-        height: 44
-        background_color: (0,0,8/10.0,1)
-        on_release: root.randomize_1_player()
-    Button:
-        text: '2'
-        size_hint_y: None
-        height: 44
-        background_color: (0,0,8/10.0,1)
-        on_release: root.randomize_2_player()
-    Button:
-        text: '3'
-        size_hint_y: None
-        height: 44
-        background_color: (0,0,8/10.0,1)
-        on_release: root.randomize_3_player()
-    Button:
-        text: '4'
-        size_hint_y: None
-        height: 44
-        background_color: (0,0,8/10.0,1)
-        on_release: root.randomize_4_player()
+
+<BoxLayout>
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
     
 <Button>
     text_size: root.width*9/10, None
@@ -49,6 +32,13 @@ WindowManager:
     bold: True
     outline_color: (0,0,0)
     outline_width: 3
+    background_color:(0,0,0,1)
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
 
 <Label_Scroll>
     text_size: root.width*9/10,None
@@ -60,6 +50,37 @@ WindowManager:
     outline_color: (0,0,0)
     outline_width: 3
     padding: 5, 10
+
+<ElementsRandomizedDropDown>
+    auto_width: False
+    width: 900    
+
+<PlayerNumberDropDown>
+    auto_width: False
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        height: 300
+        spacing: 5
+        padding: 5
+                                
+        Button:
+            text: '1'
+            background_color: (0,0,8/10.0,1)
+            on_release: root.randomize_1_player()
+            
+        Button:
+            text: '2'
+            background_color: (0,0,8/10.0,1)
+            on_release: root.randomize_2_player()
+        Button:
+            text: '3'
+            background_color: (0,0,8/10.0,1)
+            on_release: root.randomize_3_player()
+        Button:
+            text: '4'
+            background_color: (0,0,8/10.0,1)
+            on_release: root.randomize_4_player()
 
 
 <Main_Window>:
@@ -94,9 +115,7 @@ WindowManager:
 
                 on_release:
                     root.go_to_search()
-                    #app.root.current = "search_window"
-                    #root.manager.transition.direction = "left"
-
+                    
                 Image:
                     source: "gui/img/search.png"
                     center_x: self.parent.center_x
@@ -113,33 +132,14 @@ WindowManager:
                            
             Button:
                 id: select_number_players_button
-                text:"Select Number of Players"
+                text:"Number of Players"
                 background_color: (0,0,8/10.0,1)
                 on_release: root.select_player_number()
 
             Button:
-                text:"1"
-                background_color: (0,0,8/10.0,1)
-                on_release: root.randomize_1_player()
-                
-            Button:
-                text:"2"
-                background_color: (0,0,8/10.0,1)
-                on_release: root.randomize_2_player()
-                            
-            Button:
-                text:"3"
-                background_color: (0,0,8/10.0,1)
-                on_release: root.randomize_3_player()
-                
-            Button:
-                text:"4"
-                background_color: (0,0,8/10.0,1)
-                on_release: root.randomize_4_player()
-                
-            Button:
                 text:"Reset"
                 background_color: (0.1,0.1,0.1,1)
+                size_hint:(.25,1)
                 on_release: root.reset()
                 
         GridLayout:
@@ -166,10 +166,12 @@ WindowManager:
                         on_release: root.show_1_scheme()
 
                     Button:
+                        id: reduce_scheme_button
                         #size_hint: (.2,1)
                         text: "-"
                         background_color: (45/255, 145/255, 73/255, 1)
-                        on_release: root.reduce_scheme()
+                        on_release: root.select_scheme_to_delete()
+
 
                 BoxLayout:
                     orientation:'vertical'
@@ -191,10 +193,11 @@ WindowManager:
                             on_release: root.add_random_mastermind()
                     
                         Button:
+                            id: reduce_masterminds_button
                             size_hint: (.2,1)
                             text: "-"
                             background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                            on_release: root.reduce_mastermind()
+                            on_release: root.select_masterminds_to_delete()
 
                 BoxLayout:
                     orientation:'vertical'
@@ -216,10 +219,11 @@ WindowManager:
                             on_release: root.add_random_villain()
 
                         Button:
+                            id: reduce_villains_button
                             size_hint: (.2,1)
                             text: "-"
                             background_color: (1,0,0,1)
-                            on_release: root.reduce_villains()
+                            on_release: root.select_villains_to_delete()
 
                 BoxLayout:
                     orientation:'vertical'
@@ -241,10 +245,11 @@ WindowManager:
                             on_release: root.add_random_henchman()
 
                         Button:
+                            id: reduce_henchmen_button                        
                             size_hint: (.2,1)
                             text: "-"
                             background_color: (235/255.0, 156/255.0, 38/255.0,1) 
-                            on_release: root.reduce_henchmen()
+                            on_release: root.select_henchmen_to_delete()
 
                 BoxLayout:
                     orientation:'vertical'
@@ -266,10 +271,11 @@ WindowManager:
                             on_release: root.add_random_heroe()
                         
                         Button:
+                            id: reduce_heroes_button                        
                             size_hint: (.2,1)
                             text: "-"
                             background_color: (48/255.0,99/255.0,194/255.0,1)
-                            on_release: root.reduce_heroes()
+                            on_release: root.select_heroes_to_delete()
 
                 Label:
                     text:"Bystanders"

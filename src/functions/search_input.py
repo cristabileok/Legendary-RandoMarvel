@@ -7,6 +7,9 @@ from kivy.uix.boxlayout import BoxLayout
 
 import random
 
+from .create_this_scheme_description import create_this_scheme_description
+from .show_keywords_list import show_keywords_list
+
 from ..label_scroll import Label_Scroll
 from ..list_item_button import List_Item_Button
 
@@ -83,7 +86,7 @@ def search_input(self):
 
 
             for item in button_descript_list:
-                show_desc[item] = lambda item : self.create_this_scheme_description(content_list[item])
+                show_desc[item] = lambda item : create_this_scheme_description(content_list[item])
                 item.bind(on_release = show_desc[item])
                 
             
@@ -112,13 +115,13 @@ def search_input(self):
                     button_add_mastermind_to_game.text="Add"
                     button_add_mastermind_to_game.background_color= (119/255.0, 50/255.0, 168/255.0,1)
                     
-                    button_add_mastermind_to_game.bind(on_release=button_add_mastermind_to_game.add_mastermind_to_game)
-    
+                    button_add_mastermind_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"mastermind"))
+                    
                         
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : self.show_keywords_list(content_list[item],masterminds_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(content_list[item],masterminds_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []        
@@ -144,12 +147,13 @@ def search_input(self):
                     button_add_villains_to_game.text="Add"
                     button_add_villains_to_game.background_color= (1,0,0,1)
                     
-                    button_add_villains_to_game.bind(on_release=button_add_villains_to_game.add_villains_to_game)
+                    button_add_villains_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"villains"))
+
                     
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : self.show_keywords_list(content_list[item],villains_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(content_list[item],villains_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []    
@@ -176,12 +180,13 @@ def search_input(self):
                     button_add_henchmen_to_game.text="Add"
                     button_add_henchmen_to_game.background_color= (235/255.0, 156/255.0, 38/255.0,1)
                     
-                    button_add_henchmen_to_game.bind(on_release=button_add_henchmen_to_game.add_henchmen_to_game)
+                    button_add_henchmen_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"henchmen"))
+
                     
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : self.show_keywords_list(content_list[item],henchmen_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(content_list[item],henchmen_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []
@@ -207,12 +212,13 @@ def search_input(self):
                     button_add_heroes_to_game.text="Add"
                     button_add_heroes_to_game.background_color= (48/255.0,99/255.0,194/255.0,1)
                     
-                    button_add_heroes_to_game.bind(on_release=button_add_heroes_to_game.add_heroes_to_game)
+                    button_add_heroes_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"heroes"))
+
                     
                     findings_counter += 1
                                                                 
             for item in button_descript_list:
-                show_keys[item] = lambda item : self.show_keywords_list(content_list[item],heroes_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(content_list[item],heroes_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []

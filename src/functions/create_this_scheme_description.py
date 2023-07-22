@@ -71,7 +71,7 @@ def create_this_scheme_description(scheme):
                     button = Button(size_hint_y = .15)
                     button.text="{}".format(kw.replace("|","").replace(":",":\n"))
                     button.background_color= (45/255, 145/255, 73/255, 1)
-                    schemetransform = lambda : self.create_this_scheme_description(SchTranTarget)
+                    schemetransform = lambda : create_this_scheme_description(SchTranTarget)
                     button.on_release = schemetransform
                     app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
 
@@ -86,8 +86,19 @@ def create_this_scheme_description(scheme):
                     button = Button(size_hint_y = .15)
                     button.text="Unveil Scheme"
                     button.background_color= (45/255, 145/255, 73/255, 1)
-                    schemetransform = lambda : self.create_this_scheme_description(chosen_scheme)
-                    button.on_release = schemetransform
+                    
+
+                    def unveil_scheme(chosen_scheme):
+                        app = App.get_running_app()                    
+                        app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(chosen_scheme.replace("|",""))
+
+                        create_this_scheme_description(chosen_scheme)
+                     
+                    unveil_scheme_button = lambda : unveil_scheme(chosen_scheme)
+
+                    button.on_release = unveil_scheme_button
+
+                                        
                     app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
 
 
@@ -109,4 +120,4 @@ def create_this_scheme_description(scheme):
         app = App.get_running_app()
         app.root.get_screen("main_window").manager.transition.direction = "left"
         app.root.get_screen("main_window").manager.current = "scheme_window"
-        app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(scheme.replace("|",""))
+        #app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(scheme.replace("|",""))
