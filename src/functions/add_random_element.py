@@ -47,6 +47,7 @@ def add_random_element(type,*game_setup_heroes):
         while len(old_set) == old_length and len(old_set) < len(type):
             old_set.add(str(randomize_list(type,1)))
             
+        old_set = sorted(old_set)
         new_text = " / ".join(old_set)
         
         if type == masterminds_names:

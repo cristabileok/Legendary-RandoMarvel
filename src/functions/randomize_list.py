@@ -24,6 +24,7 @@ def randomize_list(type, num):
     list = set()
     while len(list) < num:
         list.add(type[random.randint(0,len(type)-1)])
+    list = sorted(list)
     list = " / ".join(list)
     if type == masterminds_names:
         chance_of_epic = random.randint(1,3)
