@@ -92,6 +92,7 @@ class Main_Window(Screen):
         
     def add_random_heroe(self):
         add_random_element(heroes_names)
+        
 
     def select_scheme_to_delete(self):
         select_element_to_delete("scheme")

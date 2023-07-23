@@ -37,7 +37,7 @@ class ElementsRandomizedDropDown(DropDown):
             dict_of_buttons[item] = List_Item_Button()
             dict_of_buttons[item].text = "{}".format(item)
             dict_of_buttons[item].size_hint_y = None
-            dict_of_buttons[item].height = 50
+            dict_of_buttons[item].height = 100
             dict_of_buttons[item].auto_width = True
 
             match category:
@@ -57,7 +57,7 @@ class ElementsRandomizedDropDown(DropDown):
             def delete_yourself(instance):
                 container = instance.parent
                 container.remove_widget(instance)
-                container.height = container.height - 55
+                container.height = container.height - 100
                 if len(container.children) <= 1:
                     container.parent.remove_widget(container)
 
@@ -67,7 +67,7 @@ class ElementsRandomizedDropDown(DropDown):
 
 
 
-            box.height = box.height + 55                                      
+            box.height = box.height + 100                                     
             box.add_widget(dict_of_buttons[item])
 
         
