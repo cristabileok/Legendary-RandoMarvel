@@ -24,7 +24,7 @@ from ..database import (
     keywords_names
 )
 
-def create_this_scheme_description(scheme):
+def create_this_scheme_description(btn,scheme):
         
     if scheme == "":
         pass
@@ -118,6 +118,9 @@ def create_this_scheme_description(scheme):
 
 
         app = App.get_running_app()
+        #app.root.get_screen("main_window").manager.transition.direction = "left"
+        #app.root.get_screen("main_window").manager.current = "scheme_window"
+        target_screen = app.root.get_screen("scheme_window")
         app.root.get_screen("main_window").manager.transition.direction = "left"
-        app.root.get_screen("main_window").manager.current = "scheme_window"
+        app.onNextScreen(btn,target_screen)
         #app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(scheme.replace("|",""))

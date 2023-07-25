@@ -19,7 +19,7 @@ from ..database import (
 )
 
 
-def show_masterminds_keywords():
+def show_masterminds_keywords(btn):
     main_window = App.get_running_app().root.get_screen("main_window")
     carrier_text = main_window.ids.mastermind_lab.text
     if carrier_text == "":
@@ -27,9 +27,9 @@ def show_masterminds_keywords():
     else:
         dict = masterminds_dict
         title = "Mastermind"
-        show_keywords_list(carrier_text,dict,title)
+        show_keywords_list(btn,carrier_text,dict,title)
 
-def show_villains_keywords():
+def show_villains_keywords(btn):
     main_window = App.get_running_app().root.get_screen("main_window")
     carrier_text = main_window.ids.villains_lab.text
     if carrier_text == "":
@@ -37,9 +37,9 @@ def show_villains_keywords():
     else:
         dict = villains_dict
         title = "Villains"
-        show_keywords_list(carrier_text,dict,title)
+        show_keywords_list(btn,carrier_text,dict,title)
 
-def show_henchmen_keywords():
+def show_henchmen_keywords(btn):
     main_window = App.get_running_app().root.get_screen("main_window")
     carrier_text = main_window.ids.henchmen_lab.text
     if carrier_text == "":
@@ -47,9 +47,9 @@ def show_henchmen_keywords():
     else:
         dict = henchmen_dict
         title = "Henchmen"
-        show_keywords_list(carrier_text,dict,title)
+        show_keywords_list(btn,carrier_text,dict,title)
 
-def show_heroes_keywords():
+def show_heroes_keywords(btn):
     main_window = App.get_running_app().root.get_screen("main_window")
     carrier_text = main_window.ids.heroes_lab.text
     if carrier_text == "":
@@ -57,4 +57,4 @@ def show_heroes_keywords():
     else:
         dict = heroes_dict
         title = "Heroes"
-        show_keywords_list(carrier_text,dict,title)
+        show_keywords_list(btn,carrier_text,dict,title)

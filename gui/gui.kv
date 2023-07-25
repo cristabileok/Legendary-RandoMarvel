@@ -7,7 +7,6 @@ WindowManager:
     Scheme_Window:
     Search_Window:
 
-
 <BoxLayout>
     canvas.before:
         Color:
@@ -69,23 +68,29 @@ WindowManager:
             text: '1'
             background_color: (0,0,8/10.0,1)
             on_release: root.randomize_1_player()
+            on_release: root.clear_dropdown()
             
         Button:
             text: '2'
             background_color: (0,0,8/10.0,1)
             on_release: root.randomize_2_player()
+            on_release: root.clear_dropdown()
+
         Button:
             text: '3'
             background_color: (0,0,8/10.0,1)
             on_release: root.randomize_3_player()
+            on_release: root.clear_dropdown()
+
         Button:
             text: '4'
             background_color: (0,0,8/10.0,1)
             on_release: root.randomize_4_player()
+            on_release: root.clear_dropdown()
 
 
 <Main_Window>:
-    name: "main_window"
+    name: "main_window"    
 
     BoxLayout:
         orientation:'vertical'
@@ -115,7 +120,7 @@ WindowManager:
                 background_color: 0,0,0,1
 
                 on_release:
-                    root.go_to_search()
+                    root.go_to_search(self)
                     
                 Image:
                     source: "gui/img/search.png"
@@ -298,32 +303,31 @@ WindowManager:
                     id: scheme_lab
                     text:""
                     background_color: (45/255.0, 145/255.0, 73/255.0, 1)
-                    on_release: root.go_to_scheme_description()
-                                        
+                    on_release: root.go_to_scheme_description(self)                                        
                                                 
                 Button:
                     id: mastermind_lab
                     text:""
                     background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                    on_release: root.show_masterminds_keywords()
+                    on_release: root.show_masterminds_keywords(self)
                                
                 Button:
                     id: villains_lab
                     text:""
                     background_color: (1,0,0,1)
-                    on_release: root.show_villains_keywords()
+                    on_release: root.show_villains_keywords(self)
                     
                 Button:
                     id: henchmen_lab
                     text:""
                     background_color: (235/255.0, 156/255.0, 38/255.0,1)
-                    on_release: root.show_henchmen_keywords()
+                    on_release: root.show_henchmen_keywords(self)
 
                 Button:
                     id: heroes_lab
                     text:""
                     background_color: (48/255.0,99/255.0,194/255.0,1)
-                    on_release: root.show_heroes_keywords()
+                    on_release: root.show_heroes_keywords(self)
 
                 Label:
                     id: bystanders_lab
@@ -374,8 +378,9 @@ WindowManager:
                 background_normal: ""
                 font_size: 90
                 on_release:
-                    app.root.current = "main_window"
-                    root.manager.transition.direction = "right"
+                    app.onBackBtn()
+                    #app.root.current = "main_window"
+                    #root.manager.transition.direction = "right"                    
 
                 Image:
                     source: "gui/img/back.png"
@@ -401,7 +406,7 @@ WindowManager:
                 background_color: 0,0,0,1
 
                 on_release:
-                    root.go_to_search()
+                    root.go_to_search(self)
                     #app.root.current = "search_window"
                     #root.manager.transition.direction = "left"
 
@@ -437,8 +442,9 @@ WindowManager:
                 background_normal: ""
                 font_size: 90
                 on_release:
-                    app.root.current = "main_window"
-                    root.manager.transition.direction = "right"
+                    app.onBackBtn()
+                    #app.root.current = "main_window"
+                    #root.manager.transition.direction = "right"
 
                 Image:
                     source: "gui/img/back.png"
@@ -464,7 +470,7 @@ WindowManager:
                 background_color: 0,0,0,1
 
                 on_release:
-                    root.go_to_search()
+                    root.go_to_search(self)
                     #app.root.current = "search_window"
                     #root.manager.transition.direction = "left"
 
@@ -500,8 +506,10 @@ WindowManager:
                 background_normal: ""
                 font_size: 90
                 on_release:
-                    app.root.current = "main_window"
-                    root.manager.transition.direction = "right"
+                    app.onBackBtn()
+                    #app.root.current = "main_window"
+                    #root.manager.transition.direction = "right"
+                    #app.onBackBtn()
 
                 Image:
                     source: "gui/img/back.png"
@@ -538,7 +546,7 @@ WindowManager:
             
             TextInput:
                 id: textinput
-                font_size: 35
+                font_size: 50
                 multiline: False
                             
                 on_text_validate: root.search_button()
@@ -560,3 +568,4 @@ WindowManager:
             id: search_container
             orientation: 'vertical'
             spacing: 5
+            vertical_align: 'top'

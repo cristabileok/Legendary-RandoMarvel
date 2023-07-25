@@ -59,7 +59,7 @@ class ElementsRandomizedDropDown(DropDown):
                 container.remove_widget(instance)
                 container.height = container.height - 100
                 if len(container.children) <= 1:
-                    container.parent.remove_widget(container)
+                    self.dismiss() 
 
             delete_yourself_button = lambda instance : delete_yourself(instance)
             

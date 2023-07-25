@@ -114,27 +114,27 @@ class Main_Window(Screen):
         reset(game_setup)
         
          
-    def show_masterminds_keywords(self):
-        show_masterminds_keywords()
+    def show_masterminds_keywords(self,btn):
+        show_masterminds_keywords(btn)
 
-    def show_villains_keywords(self):
-        show_villains_keywords()
+    def show_villains_keywords(self,btn):
+        show_villains_keywords(btn)
 
-    def show_henchmen_keywords(self):
-        show_henchmen_keywords()
+    def show_henchmen_keywords(self,btn):
+        show_henchmen_keywords(btn)
 
-    def show_heroes_keywords(self):
-        show_heroes_keywords()
+    def show_heroes_keywords(self,btn):
+        show_heroes_keywords(btn)
 
                 
-    def go_to_scheme_description(self):
-        go_to_scheme_description()
+    def go_to_scheme_description(self,btn):
+        go_to_scheme_description(btn)
 
-    def go_to_keywords_description(self):
-        go_to_keywords_description()
+    def go_to_keywords_description(self,btn):
+        go_to_keywords_description(btn)
 
-    def go_to_search(self):
-        go_to_search()
+    def go_to_search(self,btn):
+        go_to_search(btn)
 
 
     def save_game(self):

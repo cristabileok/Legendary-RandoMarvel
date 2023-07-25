@@ -22,3 +22,6 @@ class PlayerNumberDropDown(DropDown):
 
     def randomize_4_player(self):
         randomize_4_player(self.game_setup)
+
+    def clear_dropdown(self):
+                self.dismiss()               

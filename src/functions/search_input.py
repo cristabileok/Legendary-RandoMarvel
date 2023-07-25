@@ -4,6 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.widget import Widget
 
 import random
 
@@ -31,8 +32,9 @@ from ..database import (
 
 
 def search_input(self):
-    
-        app = App.get_running_app()
+            
+        app = App.get_running_app()        
+
         input = (app.root.get_screen("search_window").ids.textinput.text).lower()
         
         app.root.get_screen("search_window").ids.search_container.clear_widgets()
@@ -60,7 +62,7 @@ def search_input(self):
             for name in schemes_names:
                 if (input in name.lower()) or (input in str(schemes_dict_desc[name]).lower()) or (input in str(schemes_dict_keys[name]).lower()):
                     
-                    box[name] = BoxLayout(orientation='horizontal',spacing=2)
+                    box[name] = BoxLayout(orientation='horizontal',spacing=2)                                        
                     app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
                     button_descript = Button()
@@ -86,7 +88,7 @@ def search_input(self):
 
 
             for item in button_descript_list:
-                show_desc[item] = lambda item : create_this_scheme_description(content_list[item])
+                show_desc[item] = lambda item : create_this_scheme_description(item,content_list[item])
                 item.bind(on_release = show_desc[item])
                 
             
@@ -121,7 +123,7 @@ def search_input(self):
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : show_keywords_list(content_list[item],masterminds_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(item,content_list[item],masterminds_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []        
@@ -153,7 +155,7 @@ def search_input(self):
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : show_keywords_list(content_list[item],villains_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(item,content_list[item],villains_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []    
@@ -186,7 +188,7 @@ def search_input(self):
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : show_keywords_list(content_list[item],henchmen_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(item,content_list[item],henchmen_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []
@@ -218,17 +220,12 @@ def search_input(self):
                     findings_counter += 1
                                                                 
             for item in button_descript_list:
-                show_keys[item] = lambda item : show_keywords_list(content_list[item],heroes_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(item,content_list[item],heroes_dict,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []
             
-            if findings_counter == 0:
-                label = Label()
-                label.text = "No matches found on this search.\nTry a different input."
-                app.root.get_screen("search_window").ids.search_container.clear_widgets()
-                app.root.get_screen("search_window").ids.search_container.add_widget(label)
-            
+                       
 
             def KeywordDescriptThis(Keyword):
                 app = App.get_running_app()
@@ -261,9 +258,25 @@ def search_input(self):
                     
                     button_descript.text="{}".format(name)
                     button_descript.background_color= (0,0,8/10.0,1)
+
+                    findings_counter += 1
                     
             for item in button_descript_list:
                 show_keys[item] = lambda item : KeywordDescriptThis(content_list[item])
                 item.bind(on_release = show_keys[item])
 
-            button_descript_list = []        
+                
+            button_descript_list = []
+
+            if findings_counter == 0:
+                label = Label()
+                label.text = "No matches found on this search.\nTry a different input."
+                app.root.get_screen("search_window").ids.search_container.clear_widgets()
+                app.root.get_screen("search_window").ids.search_container.add_widget(label)
+
+            elif findings_counter <= 4:
+                for item in app.root.get_screen("search_window").ids.search_container.children:
+                    item.size_hint_y = None
+                    item.height = item.parent.height*1/5
+                empty_widget = Widget()
+                app.root.get_screen("search_window").ids.search_container.add_widget(empty_widget)        
