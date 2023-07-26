@@ -7,6 +7,7 @@ from kivy.uix.button import Button
 import random
 
 from ..label_scroll import Label_Scroll
+from ..accordion_item_keywords import AccordionItemKeywords
 
 from ..database import (
     masterminds_names,
@@ -104,7 +105,9 @@ def create_this_scheme_description(btn,scheme):
 
                 else:
 
-                    item = AccordionItem(title="{}".format(kw))
+                    item = AccordionItem(title=("Keyword: {}".format(kw)))
+                    item.background_normal="atlas://data/images/defaulttheme/button_disabled"
+                    item.background_selected="atlas://data/images/defaulttheme/button_disabled_pressed"
                     ItemsAccordion.add_widget(item)
 
                     scroll = ScrollView()

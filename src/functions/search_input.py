@@ -86,14 +86,12 @@ def search_input(self):
                     
                     findings_counter += 1
 
-
             for item in button_descript_list:
                 show_desc[item] = lambda item : create_this_scheme_description(item,content_list[item])
                 item.bind(on_release = show_desc[item])
-                
-            
-
+                            
             button_descript_list = []
+
 
             for name in masterminds_names:
                 if (input in name.lower()) or (input in str(masterminds_dict[name]).lower()):
@@ -118,8 +116,7 @@ def search_input(self):
                     button_add_mastermind_to_game.background_color= (119/255.0, 50/255.0, 168/255.0,1)
                     
                     button_add_mastermind_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"masterminds"))
-                    
-                        
+                                            
                     findings_counter += 1
                     
             for item in button_descript_list:
@@ -127,6 +124,7 @@ def search_input(self):
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []        
+
 
             for name in villains_names:
                 if (input in name.lower()) or (input in str(villains_dict[name]).lower()):
@@ -150,7 +148,6 @@ def search_input(self):
                     button_add_villains_to_game.background_color= (1,0,0,1)
                     
                     button_add_villains_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"villains"))
-
                     
                     findings_counter += 1
                     
@@ -183,7 +180,6 @@ def search_input(self):
                     button_add_henchmen_to_game.background_color= (235/255.0, 156/255.0, 38/255.0,1)
                     
                     button_add_henchmen_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"henchmen"))
-
                     
                     findings_counter += 1
                     
@@ -192,6 +188,8 @@ def search_input(self):
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []
+
+
             for name in heroes_names:
                 
                 if (input in name.lower()) or (input in str(heroes_dict[name]).lower()):
@@ -215,7 +213,6 @@ def search_input(self):
                     button_add_heroes_to_game.background_color= (48/255.0,99/255.0,194/255.0,1)
                     
                     button_add_heroes_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"heroes"))
-
                     
                     findings_counter += 1
                                                                 
@@ -224,8 +221,7 @@ def search_input(self):
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []
-            
-                       
+                                   
 
             def KeywordDescriptThis(Keyword):
                 app = App.get_running_app()
