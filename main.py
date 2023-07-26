@@ -37,8 +37,7 @@ class RandoMarvel(App):
         if self.list_of_prev_screens:
             # If there are then just go back to it
             self.root.get_screen("main_window").manager.transition.direction = "right"
-            self.root.get_screen("main_window").manager.current = self.list_of_prev_screens.pop()            
-            print(f"Lista de pantallas (back button):{self.list_of_prev_screens}")
+            self.root.get_screen("main_window").manager.current = self.list_of_prev_screens.pop()
             # We don't want to close app
             return True
         # No more screens so user must want to exit app > But I want it open so let's keep it True

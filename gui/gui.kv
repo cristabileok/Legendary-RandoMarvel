@@ -90,7 +90,7 @@ WindowManager:
 
 
 <Main_Window>:
-    name: "main_window"    
+    name: "main_window"        
 
     BoxLayout:
         orientation:'vertical'
@@ -102,6 +102,8 @@ WindowManager:
         BoxLayout:
             orientation:'horizontal'
             size_hint:(1, .15)
+            spacing: 5
+            padding: 5
 
             Label:
                 id: instructions
@@ -117,7 +119,7 @@ WindowManager:
             Button:
                 id: search_button_home
                 size_hint:(.25,1)
-                background_color: 0,0,0,1
+                background_color: (0.1,0.1,0.1,1)
 
                 on_release:
                     root.go_to_search(self)
@@ -132,7 +134,7 @@ WindowManager:
         BoxLayout:
             orientation:'horizontal'
             size_hint:(1,.15)
-
+            padding: 5
             spacing: 5
 
                            
@@ -343,7 +345,7 @@ WindowManager:
         BoxLayout:
             orientation:'horizontal'
             size_hint:(1,.15)
-
+            padding: 5
             spacing: 5
 
             Button:
@@ -373,8 +375,8 @@ WindowManager:
 
             Button:
                 size_hint: .15, 1
-                text: "<"
-                background_color:(0,0,0,1)
+                #text: "<"
+                background_color: (0.1,0.1,0.1,1)
                 background_normal: ""
                 font_size: 90
                 on_release:
@@ -400,20 +402,26 @@ WindowManager:
                         size: self.size
                         pos: self.pos
 
-            Button:
-                id: search_button_keywords
+            BoxLayout:                
+                orientation: 'horizontal'
                 size_hint:(.2,1)
-                background_color: 0,0,0,1
+                spacing: 5
+                padding: 5                
 
-                on_release:
-                    root.go_to_search(self)
-                    #app.root.current = "search_window"
-                    #root.manager.transition.direction = "left"
+                Button:
+                    id: search_button_keywords
+                    #size_hint:(.2,1)                    
+                    background_color: (0.1,0.1,0.1,1)
 
-                Image:
-                    source: "gui/img/search.png"
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
+                    on_release:
+                        root.go_to_search(self)
+                        #app.root.current = "search_window"
+                        #root.manager.transition.direction = "left"
+
+                    Image:
+                        source: "gui/img/search.png"
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
                         
                         
         BoxLayout:
@@ -434,11 +442,12 @@ WindowManager:
             orientation:'horizontal'
             size_hint: 1, .15
             padding: 5
+            spacing: 5
 
             Button:
                 size_hint: .15, 1
-                text: "<"
-                background_color:(0,0,0,1)
+                text: ""
+                background_color: (0.1,0.1,0.1,1)
                 background_normal: ""
                 font_size: 90
                 on_release:
@@ -464,20 +473,26 @@ WindowManager:
                         size: self.size
                         pos: self.pos
 
-            Button:
-                id: search_button_scheme
+            BoxLayout:                
+                orientation: 'horizontal'
                 size_hint:(.2,1)
-                background_color: 0,0,0,1
+                spacing: 5
+                padding: 5                
 
-                on_release:
-                    root.go_to_search(self)
-                    #app.root.current = "search_window"
-                    #root.manager.transition.direction = "left"
+                Button:
+                    id: search_button_keywords
+                    #size_hint:(.2,1)                    
+                    background_color: (0.1,0.1,0.1,1)
 
-                Image:
-                    source: "gui/img/search.png"
-                    center_x: self.parent.center_x
-                    center_y: self.parent.center_y
+                    on_release:
+                        root.go_to_search(self)
+                        #app.root.current = "search_window"
+                        #root.manager.transition.direction = "left"
+
+                    Image:
+                        source: "gui/img/search.png"
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
                         
                         
         BoxLayout:
@@ -498,11 +513,12 @@ WindowManager:
             orientation:'horizontal'
             size_hint: 1, .15
             padding: 5
+            
 
             Button:
                 size_hint: .15, 1
-                text: "<"
-                background_color:(0,0,0,1)
+                text: ""
+                background_color: (0.1,0.1,0.1,1)
                 background_normal: ""
                 font_size: 90
                 on_release:
@@ -554,7 +570,7 @@ WindowManager:
             Button:
                 size_hint:(.2,1)
                 on_release: root.search_button()
-                background_color: (0,0,0,1)
+                background_color: (0.1,0.1,0.1,1)
                 
                 Image:
                     source: "gui/img/search.png"

@@ -7,7 +7,6 @@ from kivy.uix.button import Button
 import random
 
 from ..label_scroll import Label_Scroll
-from ..accordion_item_keywords import AccordionItemKeywords
 
 from ..database import (
     masterminds_names,
@@ -72,7 +71,7 @@ def create_this_scheme_description(btn,scheme):
                     button = Button(size_hint_y = .15)
                     button.text="{}".format(kw.replace("|","").replace(":",":\n"))
                     button.background_color= (45/255, 145/255, 73/255, 1)
-                    schemetransform = lambda : create_this_scheme_description(SchTranTarget)
+                    schemetransform = lambda : create_this_scheme_description(button,SchTranTarget)
                     button.on_release = schemetransform
                     app.root.get_screen("scheme_window").ids.scheme_container.add_widget(button)
 
@@ -89,13 +88,13 @@ def create_this_scheme_description(btn,scheme):
                     button.background_color= (45/255, 145/255, 73/255, 1)
                     
 
-                    def unveil_scheme(chosen_scheme):
+                    def unveil_scheme(button,chosen_scheme):
                         app = App.get_running_app()                    
                         app.root.get_screen("main_window").ids.scheme_lab.text = "{}".format(chosen_scheme.replace("|",""))
 
-                        create_this_scheme_description(chosen_scheme)
+                        create_this_scheme_description(button,chosen_scheme)
                      
-                    unveil_scheme_button = lambda : unveil_scheme(chosen_scheme)
+                    unveil_scheme_button = lambda : unveil_scheme(button,chosen_scheme)
 
                     button.on_release = unveil_scheme_button
 
