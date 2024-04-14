@@ -7,7 +7,7 @@ from ..database import (
     henchmen_names,
     heroes_names,
     keywords_dict,
-    masterminds_dict,
+    masterminds_to_keywords,
     villains_dict,
     henchmen_dict,
     heroes_dict,
@@ -38,7 +38,7 @@ def show_randomized_henchmen(num,game_setup_heroes):
         main_window.ids.henchmen_lab.text = "{}".format(randomize_list(henchmen_names,num))
         
     else:
-        main_window.ids.henchmen_lab.text = "{} (only 3 cards)".format(randomize_list(henchmen_names,num))
+        main_window.ids.henchmen_lab.text = "{} \n(2 cards in deck, 2 cards in city)".format(randomize_list(henchmen_names,num))
 
 def show_randomized_heroes(num):
     main_window = App.get_running_app().root.get_screen("main_window")

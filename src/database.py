@@ -1,79 +1,77 @@
-
+import json
 import os
 
-schemes_file = open(os.path.join(os.path.dirname(__file__),'../lists/list_schemes.txt'), 'r', encoding="utf8")
-schemes_clean = schemes_file.read().replace("\n\n>> ","").replace(">> ","")
-schemes_list = schemes_clean.split("///")
-schemes_dict_desc = {}
+schemes_file = open(os.path.join(os.path.dirname(__file__),'../lists/schemes.json'), encoding='utf-8')
+schemes_data = json.load(schemes_file)
 schemes_dict_keys = {}
+schemes_dict_desc = {}
+
 schemes_names = []
-schemes_keywords = []
-for scheme in schemes_list:
-    titleSCH,descSCH = scheme.split(":::\n")
-    if "[-]" in titleSCH :
-        nameSCH,keySCHM = titleSCH.split("[-]")
-        schemes_dict_keys[nameSCH] = keySCHM.split(" , ")
-    else:
-        nameSCH = titleSCH
-        schemes_dict_keys[nameSCH] = []
-    schemes_names.append(nameSCH)
-    schemes_dict_desc[nameSCH] = descSCH
+
+for scheme in schemes_data:
+    nameScheme, keyScheme, descScheme = scheme["name"], scheme["keywords"], scheme["description"]
+
+    schemes_dict_keys[nameScheme] = keyScheme
     
+    schemes_dict_desc[nameScheme] = descScheme    
 
-masterminds_file = open(os.path.join(os.path.dirname(__file__),'../lists/list_masterminds.txt'), 'r')
-masterminds_list = masterminds_file.read().splitlines()
-masterminds_dict = {}
+    schemes_names.append(nameScheme)    
+
+masterminds_file = open(os.path.join(os.path.dirname(__file__),'../lists/masterminds.json'), encoding='utf-8')
+masterminds_data = json.load(masterminds_file)
+
+masterminds_to_keywords = {}
+masterminds_to_villains = {}
+masterminds_to_henchmen = {}
 masterminds_names = []
-for line in masterminds_list:
-    namesMM,keysMM = line.split(" : ")
-    masterminds_names.append(namesMM)
-    keysMM_list = keysMM.split(" , ")
-    if keysMM_list[0] == "":
-        keysMM_list = []
-    masterminds_dict[namesMM] = keysMM_list
 
-villains_file = open(os.path.join(os.path.dirname(__file__),'../lists/list_villains.txt'), 'r')
-villains_list = villains_file.read().splitlines()
+for mastermind in masterminds_data:
+    nameMastermind, keyMastermind, villainsMastermind, henchmenMastermind = mastermind["name"], mastermind["keywords"], mastermind["villains_groups"], mastermind["henchmen_groups"]
+    if keyMastermind[0] == "":
+        keyMastermind = []
+    masterminds_to_keywords[nameMastermind] = keyMastermind
+    masterminds_to_villains[nameMastermind] = villainsMastermind
+    masterminds_to_henchmen[nameMastermind] = henchmenMastermind
+    masterminds_names.append(nameMastermind)
+
+villains_file = open(os.path.join(os.path.dirname(__file__),'../lists/villains.json'), encoding='utf-8')
+villains_data = json.load(villains_file)
 villains_dict = {}
 villains_names = []
-for line in villains_list:
-    namesVi,keysVi = line.split(" : ")
-    villains_names.append(namesVi)
-    keysVi_list = keysVi.split(" , ")
-    if keysVi_list[0] == "":
-        keysVi_list = []
-    villains_dict[namesVi] = keysVi_list
+for villain in villains_data:
+    nameVillain,keyVillain = villain["name"],villain["keywords"]
+    if keyVillain[0] == "":
+        keyVillain = []
+    villains_dict[nameVillain] = keyVillain
+    villains_names.append(nameVillain)
 
-henchmen_file = open(os.path.join(os.path.dirname(__file__),'../lists/list_henchmen.txt'), 'r')
-henchmen_list = henchmen_file.read().splitlines()
+henchmen_file = open(os.path.join(os.path.dirname(__file__),'../lists/henchmen.json'), encoding='utf-8')
+henchmen_data = json.load(henchmen_file)
 henchmen_dict = {}
 henchmen_names = []
-for line in henchmen_list:
-    namesHeN,keysHeN = line.split(" : ")
-    henchmen_names.append(namesHeN)
-    keysHeN_list = keysHeN.split(" , ")
-    if keysHeN_list[0] == "":
-        keysHeN_list = []
-    henchmen_dict[namesHeN] = keysHeN_list
+for henchmen in henchmen_data:
+    nameHenchman,keyHenchman = henchmen["name"],henchmen["keywords"]
+    if keyHenchman[0] == "":
+        keyHenchman = []
+    henchmen_dict[nameHenchman] = keyHenchman
+    henchmen_names.append(nameHenchman)
 
-heroes_file = open(os.path.join(os.path.dirname(__file__),'../lists/list_heroes.txt'), 'r')
-heroes_list = heroes_file.read().splitlines()
+heroes_file = open(os.path.join(os.path.dirname(__file__),'../lists/heroes.json'), encoding='utf-8')
+heroes_data = json.load(heroes_file)
 heroes_dict = {}
 heroes_names = []
-for line in heroes_list:
-    namesHeR,keysHeR = line.split(" : ")
-    heroes_names.append(namesHeR)
-    keysHeR_list = keysHeR.split(" , ")
-    if keysHeR_list[0] == "":
-        keysHeR_list = []
-    heroes_dict[namesHeR] = keysHeR_list
+for hero in heroes_data:
+    nameHeroe,keyHeroe = hero["name"],hero["keywords"]
+    if keyHeroe[0] == "":
+        keyHeroe = []
+    heroes_dict[nameHeroe] = keyHeroe
+    heroes_names.append(nameHeroe)
 
-keywords_file = open(os.path.join(os.path.dirname(__file__),'../lists/list_keywords.txt'), 'r', encoding="utf8")
-keywords_clean = keywords_file.read().replace("\n\n>> ","").replace(">> ","")
-keywords_list = keywords_clean.split("///")
+keywords_file = open(os.path.join(os.path.dirname(__file__),'../lists/keywords.json'), encoding='utf-8')
+keywords_data = json.load(keywords_file)
 keywords_dict = {}
 keywords_names = set()
-for keyword in keywords_list:
-    nameKW,descKW = keyword.split(":::\n")
+for keyword in keywords_data:
+    nameKW,descKW = keyword["name"],keyword["description"]
     keywords_dict[nameKW] = descKW
     keywords_names.add(nameKW)

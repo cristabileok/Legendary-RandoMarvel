@@ -11,6 +11,7 @@ import random
 from .create_this_scheme_description import create_this_scheme_description
 from .show_keywords_list import show_keywords_list
 
+from ..confirm_add_dropdown import ConfirmAddDropdown
 from ..label_scroll import Label_Scroll
 from ..list_item_button import List_Item_Button
 
@@ -21,7 +22,7 @@ from ..database import (
     henchmen_names,
     heroes_names,
     keywords_dict,
-    masterminds_dict,
+    masterminds_to_keywords,
     villains_dict,
     henchmen_dict,
     heroes_dict,
@@ -78,7 +79,7 @@ def search_input(self):
                     button_descript.text="{}".format(name.replace("|",""))
                     button_descript.background_color= (45/255, 145/255, 73/255, 1)
                     
-                    button_set_scheme_to_game.text="Set"
+                    button_set_scheme_to_game.text="Set Game"
                     button_set_scheme_to_game.background_color=(45/255, 145/255, 73/255, 1)
                                                             
                     button_set_scheme_to_game.bind(on_release=button_set_scheme_to_game.set_to_game)
@@ -94,33 +95,39 @@ def search_input(self):
 
 
             for name in masterminds_names:
-                if (input in name.lower()) or (input in str(masterminds_dict[name]).lower()):
+                if (input in name.lower()) or (input in str(masterminds_to_keywords[name]).lower()):
                     
                     box[name] = BoxLayout(orientation='horizontal',spacing=2)
                     app.root.get_screen("search_window").ids.search_container.add_widget(box[name])
                     
                     button_descript = Button()
-                    box[name].add_widget(button_descript)
-                    
-                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
-                    
-                    button_add_mastermind_to_game = List_Item_Button(size_hint=(.2,1))
-                    box[name].add_widget(button_add_mastermind_to_game)
+                    box[name].add_widget(button_descript)                    
                     
                     button_descript_list.append(button_descript)
                     content_list[button_descript] = name
                     
                     button_descript.text="{}".format(name)
                     button_descript.background_color= (119/255.0, 50/255.0, 168/255.0,1)
-                    button_add_mastermind_to_game.text="Add"
-                    button_add_mastermind_to_game.background_color= (119/255.0, 50/255.0, 168/255.0,1)
+
                     
-                    button_add_mastermind_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"masterminds"))
+                    button_confirm_add = Button(size_hint=(.2,1))
+                    box[name].add_widget(button_confirm_add)
+
+                    button_confirm_add.text="Add"
+                    button_confirm_add.background_color= (119/255.0, 50/255.0, 168/255.0,1)
+
+                    confirm_add_dropdown = ConfirmAddDropdown(button_confirm_add,"masterminds")
+
+                    #button_confirm_add.bind(on_release=lambda instance: confirm_add_dropdown.open(instance))
+
+                    button_confirm_add.bind(on_release=lambda instance, dropdown=confirm_add_dropdown: dropdown.open(instance))
+
+                                        
                                             
                     findings_counter += 1
                     
             for item in button_descript_list:
-                show_keys[item] = lambda item : show_keywords_list(item,content_list[item],masterminds_dict,content_list[item])
+                show_keys[item] = lambda item : show_keywords_list(item,content_list[item],masterminds_to_keywords,content_list[item])
                 item.bind(on_release = show_keys[item])
 
             button_descript_list = []        
@@ -134,21 +141,26 @@ def search_input(self):
                     
                     button_descript = Button()
                     box[name].add_widget(button_descript)
-                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
-                    
-                    button_add_villains_to_game = List_Item_Button(size_hint=(.2,1))
-                    box[name].add_widget(button_add_villains_to_game)
-                    
+                                        
                     button_descript_list.append(button_descript)
                     content_list[button_descript] = name
                     
                     button_descript.text="{}".format(name)
                     button_descript.background_color= (1,0,0,1)
-                    button_add_villains_to_game.text="Add"
-                    button_add_villains_to_game.background_color= (1,0,0,1)
-                    
-                    button_add_villains_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"villains"))
-                    
+
+
+                    button_confirm_add = Button(size_hint=(.2,1))
+                    box[name].add_widget(button_confirm_add)
+
+                    button_confirm_add.text="Add"
+                    button_confirm_add.background_color= (1,0,0,1)
+
+                    confirm_add_dropdown = ConfirmAddDropdown(button_confirm_add,"villains")
+
+                    #button_confirm_add.bind(on_release=lambda instance: confirm_add_dropdown.open(instance))
+
+                    button_confirm_add.bind(on_release=lambda instance, dropdown=confirm_add_dropdown: dropdown.open(instance))
+
                     findings_counter += 1
                     
             for item in button_descript_list:
@@ -166,21 +178,25 @@ def search_input(self):
                     
                     button_descript = Button()
                     box[name].add_widget(button_descript)
-                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
-                    
-                    button_add_henchmen_to_game = List_Item_Button(size_hint=(.2,1))
-                    box[name].add_widget(button_add_henchmen_to_game)
-                    
+                                        
                     button_descript_list.append(button_descript)
                     content_list[button_descript] = name
                     
                     button_descript.text="{}".format(name)
                     button_descript.background_color= (235/255.0, 156/255.0, 38/255.0,1)
-                    button_add_henchmen_to_game.text="Add"
-                    button_add_henchmen_to_game.background_color= (235/255.0, 156/255.0, 38/255.0,1)
-                    
-                    button_add_henchmen_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"henchmen"))
-                    
+
+                    button_confirm_add = Button(size_hint=(.2,1))
+                    box[name].add_widget(button_confirm_add)
+
+                    button_confirm_add.text="Add"
+                    button_confirm_add.background_color= (235/255.0, 156/255.0, 38/255.0,1)
+
+                    confirm_add_dropdown = ConfirmAddDropdown(button_confirm_add,"henchmen")
+
+                    #button_confirm_add.bind(on_release=lambda instance: confirm_add_dropdown.open(instance))
+
+                    button_confirm_add.bind(on_release=lambda instance, dropdown=confirm_add_dropdown: dropdown.open(instance))
+
                     findings_counter += 1
                     
             for item in button_descript_list:
@@ -199,21 +215,25 @@ def search_input(self):
                     
                     button_descript = Button()
                     box[name].add_widget(button_descript)
-                    #app.root.get_screen("search_window").ids.search_container.add_widget(button_descript)
-                    
-                    button_add_heroes_to_game = List_Item_Button(size_hint=(.2,1))
-                    box[name].add_widget(button_add_heroes_to_game)
-                    
+                                        
                     button_descript_list.append(button_descript)
                     content_list[button_descript] = name
                     
                     button_descript.text="{}".format(name)
                     button_descript.background_color= (48/255.0,99/255.0,194/255.0,1)
-                    button_add_heroes_to_game.text="Add"
-                    button_add_heroes_to_game.background_color= (48/255.0,99/255.0,194/255.0,1)
                     
-                    button_add_heroes_to_game.bind(on_release=lambda instance: instance.add_element_to_game(instance,"heroes"))
-                    
+                    button_confirm_add = Button(size_hint=(.2,1))
+                    box[name].add_widget(button_confirm_add)
+
+                    button_confirm_add.text="Add"
+                    button_confirm_add.background_color= (48/255.0,99/255.0,194/255.0,1)
+
+                    confirm_add_dropdown = ConfirmAddDropdown(button_confirm_add,"heroes")
+
+                    #button_confirm_add.bind(on_release=lambda instance: confirm_add_dropdown.open(instance))
+
+                    button_confirm_add.bind(on_release=lambda instance, dropdown=confirm_add_dropdown: dropdown.open(instance))
+
                     findings_counter += 1
                                                                 
             for item in button_descript_list:

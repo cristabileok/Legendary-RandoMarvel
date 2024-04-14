@@ -9,7 +9,7 @@ from ..database import (
     henchmen_names,
     heroes_names,
     keywords_dict,
-    masterminds_dict,
+    masterminds_to_keywords,
     villains_dict,
     henchmen_dict,
     heroes_dict,
@@ -25,7 +25,7 @@ def show_masterminds_keywords(btn):
     if carrier_text == "":
         pass
     else:
-        dict = masterminds_dict
+        dict = masterminds_to_keywords
         title = "Mastermind"
         show_keywords_list(btn,carrier_text,dict,title)
 

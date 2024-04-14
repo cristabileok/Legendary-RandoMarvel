@@ -12,7 +12,7 @@ from ..database import (
     henchmen_names,
     heroes_names,
     keywords_dict,
-    masterminds_dict,
+    masterminds_to_keywords,
     villains_dict,
     henchmen_dict,
     heroes_dict,
@@ -30,7 +30,7 @@ def create_keywords_list(carrier,dict,title):
                         
             app.root.get_screen("keywords_window").ids.accordion_container.clear_widgets()
 
-            carriers_text_clean = carrier.replace("Epic ","").replace(" (only 3 cards)","")
+            carriers_text_clean = carrier.replace("Epic ","").replace(" \n(2 cards in deck, 2 cards in city)","")
 
             if title == "Mastermind" or title in masterminds_names:
                 app.root.get_screen("keywords_window").ids.keywords_title.text = "{}'s Keywords".format(title)

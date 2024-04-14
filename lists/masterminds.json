@@ -1,0 +1,370 @@
+[
+    {
+        "name": "Apocalypse",
+        "keywords": [
+            ""
+        ],
+        "villains_groups": [
+            "Four Horsemen"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Bastion",
+        "keywords": [
+            "Clone Villains"
+        ],
+        "villains_groups": [
+        ],
+        "henchmen_groups": [
+            "Sentinel Squad"
+        ]
+    },
+    {
+        "name": "Carnage",
+        "keywords": [
+            "Feast"
+        ],
+        "villains_groups": [
+            "Maximum Carnage"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Dark Phoenix",
+        "keywords": [
+            "Dominate",
+            "Trap"
+        ],
+        "villains_groups": [
+            "Hellfire Club"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Dormammu",
+        "keywords": [
+            "Demonic Bargain"
+        ],
+        "villains_groups": [
+            "Lords of the Netherworld"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Dr. Doom",
+        "keywords": [
+            "Fortify @"
+        ],
+        "villains_groups": [
+        ],
+        "henchmen_groups": [
+            "Doombot Legion"
+        ]
+    },
+    {
+        "name": "Ego, The Living Planet",
+        "keywords": [
+            ""
+        ],
+        "villains_groups": [            
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Emma Frost",
+        "keywords": [
+            "Moonlight",
+            "Sunlight",
+            "Waking Nightmare"
+        ],
+        "villains_groups": [
+            "Hellions"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Galactus",
+        "keywords": [
+            "Cosmic Threat @"
+        ],
+        "villains_groups": [
+            "Heralds of Galactus"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "General Thunderbolt Ross",
+        "keywords": [
+            "Cross-Dimensional @ Rampage",
+            "Locations",
+            "Transform",
+            "Trap",
+            "Wounded Fury"
+        ],
+        "villains_groups": [
+            "Code Red"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Hella",
+        "keywords": [
+            "Artifact",
+            "@ Conqueror #",
+            "Villainous Weapon"
+        ],
+        "villains_groups": [
+            "Omens of Ragnarok"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Hydra High Council",
+        "keywords": [
+            "Adapt",
+            "Hydra Level",
+            "Send Undercover"
+        ],
+        "villains_groups": [
+            "Hydra Elite"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "J. J. Jameson",
+        "keywords": [
+            "Investigate for @"
+        ],
+        "villains_groups": [
+        ],
+        "henchmen_groups": [
+            "Spider-Slayers"
+        ]
+    },
+    {
+        "name": "Kang the Conqueror",
+        "keywords": [
+            "@ Conqueror #",
+            "Man Out of Time"
+        ],
+        "villains_groups": [
+            "Timelines of Kang"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Kingpin",
+        "keywords": [
+            "Bribe",
+            "Fortify @"
+        ],
+        "villains_groups": [
+            "Streets of New York"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Loki",
+        "keywords": [
+            "Shards"
+        ],
+        "villains_groups": [
+        ],
+        "henchmen_groups": [
+            "Chitauri"
+        ]
+    },
+    {
+        "name": "Magneto",
+        "keywords": [
+            "Spectrum"
+        ],
+        "villains_groups": [
+            "Brotherhood of Mutants"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Malekith",
+        "keywords": [
+            "Artifact",
+            "Thrown Artifact",
+            "Villainous Weapon",
+            "Worthy"
+        ],
+        "villains_groups": [
+            "Dark Council"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "M.O.D.O.K.",
+        "keywords": [
+            "Outwit",
+            "Transform",
+            "Trap",
+            "Wounded Fury"
+        ],
+        "villains_groups": [
+            "Intelligencia"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Mr. Sinister",
+        "keywords": [
+            "Trap"
+        ],
+        "villains_groups": [
+            "Maraudres"
+        ],
+        "henchmen_groups": [            
+        ]       
+    },
+    {
+        "name": "Mysterio",
+        "keywords": [
+            ""
+        ],
+        "villains_groups": [
+            "Sinister Six"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Namor",
+        "keywords": [
+            "Empowered by @"
+        ],
+        "villains_groups": [
+            "Armies of Atlantis"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Secretary Alexander Peirce",
+        "keywords": [
+            "Fortify @",
+            "S.H.I.E.L.D. Clearance"
+        ],
+        "villains_groups": [
+            "S.H.I.E.L.D. Elite"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Shadow King",
+        "keywords": [
+            "Dominate",
+            "Soaring Flight",
+            "Trap"
+        ],
+        "villains_groups": [
+            "Shadow-X"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Skrull Super-Adaptoid",
+        "keywords": [
+            "Adapt"
+        ],
+        "villains_groups": [
+            "Skrulls"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Supreme Intelligence of the Kree",
+        "keywords": [
+            "Shards"
+        ],
+        "villains_groups": [
+            "Kree Starforce"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Thanos",
+        "keywords": [
+            "Artifact",
+            "Shards"
+        ],
+        "villains_groups": [
+            "Infinity Gems"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "The Grandmaster",
+        "keywords": [
+            "Contest of Champions @",
+            "Shards"
+        ],
+        "villains_groups": [
+            "Elders of the Universe"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "The Hand, Secret Society",
+        "keywords": [
+            "Cross-Dimensional @ Rampage",
+            "Outwit",
+            "Transform",
+            "Trap"
+        ],
+        "villains_groups": [
+            "Fingers of the Hand"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Ultron",
+        "keywords": [
+            "Empowered by @",
+            "Size-Changing @"
+        ],
+        "villains_groups": [
+            "Ultron's Legacy"
+        ],
+        "henchmen_groups": [            
+        ]
+    },
+    {
+        "name": "Venom",
+        "keywords": [
+            ""
+        ],
+        "villains_groups": [
+            "Spider-foes"
+        ],
+        "henchmen_groups": [            
+        ]
+    }
+]

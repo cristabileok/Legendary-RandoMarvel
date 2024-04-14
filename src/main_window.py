@@ -21,7 +21,7 @@ from .database import (
     henchmen_names,
     heroes_names,
     keywords_dict,
-    masterminds_dict,
+    masterminds_to_keywords,
     villains_dict,
     henchmen_dict,
     heroes_dict,
@@ -31,8 +31,9 @@ from .database import (
 )
 
 from .functions.add_random_element import add_random_element
-from .functions.change_instructions import change_instructions
+from .functions.confirm_save_game import confirm_save_game
 from .functions.go_to_keywords_description import go_to_keywords_description
+from .functions.go_to_poketset import go_to_poketset
 from .functions.go_to_scheme_description import go_to_scheme_description
 from .functions.go_to_search import go_to_search
 from .functions.load_and_save import load_game, save_game
@@ -52,20 +53,36 @@ class Main_Window(Screen):
         select_player_number(game_setup)
 
     
-    def show_1_scheme(self):
+    def change_scheme(self):
         show_randomized_schemes(1)
 
-    def show_1_mastermind(self):
-        show_randomized_mastermind(1)
+    def change_masterminds(self):
+        main_window = App.get_running_app().root.get_screen("main_window")
+        masterminds_text = main_window.ids.mastermind_lab.text
+        if masterminds_text != "":
+            masterminds_number = len(masterminds_text.split(" / "))
+            show_randomized_mastermind(masterminds_number)
 
-    def show_1_villain(self):
-        show_randomized_villains(game_setup.number_of_villains)
+    def change_villains(self):
+        main_window = App.get_running_app().root.get_screen("main_window")
+        villains_text = main_window.ids.villains_lab.text
+        if villains_text != "":
+            villains_number = len(villains_text.split(" / "))
+            show_randomized_villains(villains_number)
 
-    def show_1_henchman(self):
-        show_randomized_henchmen(game_setup.number_of_henchmen,game_setup.number_of_heroes)
+    def change_henchmen(self):
+        main_window = App.get_running_app().root.get_screen("main_window")
+        henchmen_text = main_window.ids.henchmen_lab.text
+        if henchmen_text != "":
+            henchmen_number = len(henchmen_text.split(" / "))
+            show_randomized_henchmen(henchmen_number,game_setup.number_of_heroes)
 
-    def show_1_heroe(self):
-        show_randomized_heroes(game_setup.number_of_heroes)
+    def change_heroes(self):
+        main_window = App.get_running_app().root.get_screen("main_window")
+        heroes_text = main_window.ids.heroes_lab.text
+        if heroes_text != "":
+            heroes_number = len(heroes_text.split(" / "))
+            show_randomized_heroes(heroes_number)
 
 
     def randomize_1_player(self):
@@ -137,9 +154,17 @@ class Main_Window(Screen):
         go_to_search(btn)
 
 
-    def save_game(self):
-        save_game(game_setup.number_of_villains,game_setup.number_of_henchmen,game_setup.number_of_heroes)
+    #def save_game(self):
+    #    save_game(game_setup.number_of_villains,game_setup.number_of_henchmen,game_setup.number_of_heroes)
+
+    def confirm_save_game(self):
+        confirm_save_game(game_setup.number_of_villains,game_setup.number_of_henchmen,game_setup.number_of_heroes)
+        
 
     def load_game(self):
-        game_setup.number_of_villains,game_setup.number_of_henchmen,game_setup.number_of_heroes = load_game()
-        change_instructions()
+        #game_setup.number_of_villains,game_setup.number_of_henchmen,game_setup.number_of_heroes = load_game()
+        #No sé si el código de arriba es un typo o no, probablemente sí.
+        load_game()
+
+    def go_to_poketset(self,btn):
+        go_to_poketset(btn)

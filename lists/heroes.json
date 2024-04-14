@@ -1,0 +1,480 @@
+[
+    {
+        "name": "Amazing Spider-Man",
+        "keywords": [
+            "Wall-Crawl"
+        ]
+    },
+    {
+        "name": "Angel",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Ant Man",
+        "keywords": [
+            "Size-Changing @"
+        ]
+    },
+    {
+        "name": "Beast",
+        "keywords": [
+            "Berserk",
+            "X-Gene @"
+        ]
+    },
+    {
+        "name": "Bishop",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Black Bolt",
+        "keywords": [
+            "Throne's Favor"
+        ]
+    },
+    {
+        "name": "Black Panther",
+        "keywords": [
+            "@ Ambush (on Heroes)",
+            "Throne's Favor"
+        ]
+    },
+    {
+        "name": "Black Widow",
+        "keywords": [
+            "Dark Memories",
+            "Dodge",
+            "Send Undercover"
+        ]
+    },
+    {
+        "name": "Cable",
+        "keywords": [
+            "Teleport"
+        ]
+    },
+    {
+        "name": "Captain America",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Captain Carter",
+        "keywords": [
+            "What If",
+            "Liberate #"
+        ]
+    },
+    {
+        "name": "Captain Marvel",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Colossus",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Cyclops",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Daredevil",
+        "keywords": [
+            "Investigate for @"
+        ]
+    },
+    {
+        "name": "Deadpool",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Domino",
+        "keywords": [
+            "Versatile #"
+        ]
+    },
+    {
+        "name": "Dr. Strange",
+        "keywords": [
+            "Teleport"
+        ]
+    },
+    {
+        "name": "Drax",
+        "keywords": [
+            "Artifact",
+            "Divided Cards",
+            "Excessive Violence",
+            "Triggered Artifact"
+        ]
+    },
+    {
+        "name": "Elektra",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Falcon",
+        "keywords": [
+            "Divided Cards"
+        ]
+    },
+    {
+        "name": "Fantastic Four",
+        "keywords": [
+            "Focus # R > \"@\""
+        ]
+    },
+    {
+        "name": "Gambit",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Gamora",
+        "keywords": [
+            "Artifact",
+            "Shards"
+        ]
+    },
+    {
+        "name": "Groot",
+        "keywords": [
+            "Shards"
+        ]
+    },
+    {
+        "name": "Hawkeye",
+        "keywords": [
+            "Dark Memories",
+            "Hyperspeed #"
+        ]
+    },
+    {
+        "name": "Hulk",
+        "keywords": [
+            "Cross-Dimensional @ Rampage",
+            "Smash #",
+            "Transform",
+            "Wounded Fury"
+        ]
+    },
+    {
+        "name": "Hulkbuster Iron Man",
+        "keywords": [
+            "Outwit",
+            "Smash #",
+            "Transform"
+        ]
+    },
+    {
+        "name": "Ice Man",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Iron Fist",
+        "keywords": [
+            "Versatile #"
+        ]
+    },
+    {
+        "name": "Iron Man",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Iron Spider-Man",
+        "keywords": [
+            "Coordinate",
+            "Danger Sense #",
+            "Wall-Crawl"
+        ]
+    },
+    {
+        "name": "Jean Grey",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Jessica Jones",
+        "keywords": [
+            "Investigate for @",
+            "Switcheroo #"
+        ]
+    },
+    {
+        "name": "Jubilee",
+        "keywords": [
+            "Lightshow"
+        ]
+    },
+    {
+        "name": "Kitty Pride",
+        "keywords": [
+            "Divided Cards",
+            "Phasing"
+        ]
+    },
+    {
+        "name": "Korg",
+        "keywords": [
+            "Outwit",
+            "Smash #",
+            "Transform"
+        ]
+    },
+    {
+        "name": "Lady Thor",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Legion",
+        "keywords": [
+            "Berserk",
+            "Divided Cards",
+            "X-Gene @"
+        ]
+    },
+    {
+        "name": "Loki",
+        "keywords": [
+            "Shards"
+        ]
+    },
+    {
+        "name": "Luke Cage",
+        "keywords": [
+            "Investigate for @"
+        ]
+    },
+    {
+        "name": "Mantis",
+        "keywords": [
+            "Divided Cards",
+            "Excessive Kindness"
+        ]
+    },
+    {
+        "name": "Moon Knight",
+        "keywords": [
+            "Wall-Crawl"
+        ]
+    },
+    {
+        "name": "Ms. America",
+        "keywords": [
+            "Investigate for @",
+            "Teleport"
+        ]
+    },
+    {
+        "name": "Ms. Marvel",
+        "keywords": [
+            "Cheering Crowds",
+            "Size-Changing @",
+            "Versatile #"
+        ]
+    },
+    {
+        "name": "Nebula",
+        "keywords": [
+            "Shards"
+        ]
+    },
+    {
+        "name": "Nightcrawler",
+        "keywords": [
+            "Teleport"
+        ]
+    },
+    {
+        "name": "Princess Shuri",
+        "keywords": [
+            "@ Ambush (on Heroes)",
+            "Empowered by @"
+        ]
+    },
+    {
+        "name": "Professor X",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Punisher",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Quicksilver",
+        "keywords": [
+            "Hyperspeed #"
+        ]
+    },
+    {
+        "name": "Rocket",
+        "keywords": [
+            "Artifact",
+            "Shards"
+        ]
+    },
+    {
+        "name": "Rogue",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Scarlet Witch",
+        "keywords": [
+            "Dark Memories"
+        ]
+    },
+    {
+        "name": "Shang-Chi",
+        "keywords": [
+            "Wall-Crawl"
+        ]
+    },
+    {
+        "name": "Shatterstar",
+        "keywords": [
+            "Clone Heroes",
+            "Shatter @",
+            "Tactical Formation ##$"
+        ]
+    },
+    {
+        "name": "She-Hulk",
+        "keywords": [
+            "Outwit",
+            "Smash #",
+            "Transform"
+        ]
+    },
+    {
+        "name": "Spider-Gwen",
+        "keywords": [
+            "Wall-Crawl"
+        ]
+    },    
+    {
+        "name": "Spider-Man Noir",
+        "keywords": [
+            "Investigate for @"
+        ]
+    },
+    {
+        "name": "Starlord",
+        "keywords": [
+            "Artifact",
+            "Shards"
+        ]
+    },
+    {
+        "name": "Stature",
+        "keywords": [
+            "Divided Cards",
+            "Size-Changing @"
+        ]
+    },
+    {
+        "name": "Stepford Cuckoos",
+        "keywords": [
+            "Clone Heroes",
+            "Investigate for @",
+            "Tactical Formation ##$"
+        ]
+    },
+    {
+        "name": "Storm",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Thor",
+        "keywords": [
+            "Artifact",
+            "Thrown Artifact",
+            "Worthy"
+        ]
+    },
+    {
+        "name": "Ultimate Spider-Man",
+        "keywords": [
+            ""
+        ]
+    },
+    {
+        "name": "Valkyrie",
+        "keywords": [
+            "Artifact",
+            "@ Conqueror #",
+            "Thrown Artifact"
+        ]
+    },
+    {
+        "name": "Venom",
+        "keywords": [
+            "Digest # / Indigestion",
+            "Excessive Violence"
+        ]
+    },
+    {
+        "name": "Vision",
+        "keywords": [
+            "Divided Cards",
+            "Phasing",
+            "Size-Changing @"
+        ]
+    },
+    {
+        "name": "War Machine",
+        "keywords": [
+            "Hyperspeed #"
+        ]
+    },
+    {
+        "name": "Wasp",
+        "keywords": [
+            "Heist",
+            "Size-Changing @"
+        ]
+    },
+    {
+        "name": "Winter Soldier",
+        "keywords": [
+            "Man Out of Time"
+        ]
+    },
+    {
+        "name": "Wolverine",
+        "keywords": [
+            "Berserk",
+            "X-Gene @"
+        ]
+    }
+]

@@ -2,6 +2,8 @@ import os
 
 from kivy.app import App
 
+from .change_instructions import change_instructions
+
 
 def save_game(number_of_villains,number_of_henchmen,number_of_heroes):
     main_window = App.get_running_app().root.get_screen("main_window")
@@ -32,4 +34,8 @@ def load_game():
         main_window.ids.henchmen_lab.text = '{}'.format(henchmen_load)
         main_window.ids.heroes_lab.text = '{}'.format(heroes_load)
         main_window.ids.bystanders_lab.text = '{}'.format(bystanders_load)
+
+        change_instructions()
+
+
         return number_of_villains, number_of_henchmen, number_of_heroes

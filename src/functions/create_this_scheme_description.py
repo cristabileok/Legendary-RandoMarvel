@@ -15,7 +15,7 @@ from ..database import (
     henchmen_names,
     heroes_names,
     keywords_dict,
-    masterminds_dict,
+    masterminds_to_keywords,
     villains_dict,
     henchmen_dict,
     heroes_dict,
@@ -37,33 +37,36 @@ def create_this_scheme_description(btn,scheme):
         app.root.get_screen("scheme_window").ids.scheme_title.background_color=(45/255.0, 145/255.0, 73/255.0, 1)
 
         ItemsAccordion = Accordion(orientation = "vertical")
+        
         app.root.get_screen("scheme_window").ids.scheme_container.add_widget(ItemsAccordion)
 
         try:
-            content = schemes_dict_desc[scheme].split("\n---\n")
+            content = schemes_dict_desc[scheme]#.split("\n---\n")
 
         except KeyError:
             
             scheme = "".join(["|", scheme])
-            content = schemes_dict_desc[scheme].split("\n---\n")
+            content = schemes_dict_desc[scheme]#.split("\n---\n")
 
-        for item in content:
-            title,description = item.split("\n--\n")
+        #for item in content:
+            #title,description = item.split("\n--\n")
             
+        for title, description in content.items():
+
             accordionitem = AccordionItem(title="{}".format(title))
             ItemsAccordion.add_widget(accordionitem)
 
             scroll = ScrollView()
             accordionitem.add_widget(scroll)
-            if item == content[0]:
-                accordionitem.collapse=False
-            
+
             label = Label_Scroll()
             label.text = "{}".format(description)
-            scroll.add_widget(label)
+            scroll.add_widget(label)             
+       
+        ItemsAccordion.children[-1].collapse = False
 
         keywords = schemes_dict_keys[scheme]
-
+        
         if len(keywords) != []:
             for kw in keywords:
                 if "Scheme Transforms" in kw:

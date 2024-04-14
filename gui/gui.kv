@@ -1,4 +1,4 @@
-#:kivy 2.0.0
+#:kivy 2.2.0
 
 WindowManager:
     id: wm
@@ -6,6 +6,7 @@ WindowManager:
     Keywords_Window:
     Scheme_Window:
     Search_Window:
+    PoketSet_Window:
 
 <BoxLayout>
     canvas.before:
@@ -88,6 +89,52 @@ WindowManager:
             on_release: root.randomize_4_player()
             on_release: root.clear_dropdown()
 
+<SaveGameDropdown>
+    auto_width: False
+    width: 350
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None                
+        height: 100            
+        spacing: 5
+        padding: 5
+                                
+        Button:
+            text: 'Yes'
+            background_color: (0.1,0.1,0.1,1)
+            on_release: root.save_game()
+            on_release: root.clear_dropdown()
+            
+        Button:
+            text: 'No'
+            background_color: (0.1,0.1,0.1,1)
+            on_release: root.clear_dropdown()
+
+
+<SavePoketsetDropdown>
+    auto_width: False
+    width: 350
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None                
+        height: 100            
+        spacing: 5
+        padding: 5
+                                
+        Button:
+            text: 'Yes'
+            background_color: (0.1,0.1,0.1,1)
+            on_release: root.save_poketset()
+            on_release: root.clear_dropdown()
+            
+        Button:
+            text: 'No'
+            background_color: (0.1,0.1,0.1,1)
+            on_release: root.clear_dropdown()
+
+<ConfirmAddDropdown>
+    auto_width: False
+    width: 800
 
 <Main_Window>:
     name: "main_window"        
@@ -163,19 +210,14 @@ WindowManager:
                 BoxLayout:
                     orientation:'vertical'
                     spacing: 5
-
-                    #Label:
-                    #    size_hint: (.2,1)
-                    #    background_color: (0,0,0)
-                                                                
+                                                                 
                     Button:
                         text:"Scheme"
                         background_color: (45/255, 145/255, 73/255, 1)
-                        on_release: root.show_1_scheme()
+                        on_release: root.change_scheme()
 
                     Button:
                         id: reduce_scheme_button
-                        #size_hint: (.2,1)
                         text: "-"
                         background_color: (45/255, 145/255, 73/255, 1)
                         on_release: root.select_scheme_to_delete()
@@ -188,7 +230,7 @@ WindowManager:
                     Button:
                         text:"Mastermind"
                         background_color: (119/255.0, 50/255.0, 168/255.0,1)
-                        on_release: root.show_1_mastermind()
+                        on_release: root.change_masterminds()
 
                     BoxLayout:
                         orientation:'horizontal'
@@ -214,7 +256,7 @@ WindowManager:
                     Button:
                         text:"Villains"
                         background_color: (1,0,0,1)
-                        on_release: root.show_1_villain()
+                        on_release: root.change_villains()
 
                     BoxLayout:
                         orientation:'horizontal'
@@ -240,7 +282,7 @@ WindowManager:
                     Button:
                         text:"Henchmen"
                         background_color: (235/255.0, 156/255.0, 38/255.0,1)
-                        on_release: root.show_1_henchman()    
+                        on_release: root.change_henchmen()
 
                     BoxLayout:
                         orientation:'horizontal'
@@ -266,7 +308,7 @@ WindowManager:
                     Button:
                         text:"Heroes"
                         background_color: (48/255.0,99/255.0,194/255.0,1)
-                        on_release:root.show_1_heroe()
+                        on_release:root.change_heroes()
 
                     BoxLayout:
                         orientation:'horizontal'
@@ -287,6 +329,7 @@ WindowManager:
 
                 Label:
                     text:"Bystanders"
+                    size_hint: (1,.5)
                     background_color: (8/10.0,8/10.0,0,1)
                     outline_width: 2
                     canvas.before:
@@ -333,6 +376,7 @@ WindowManager:
 
                 Label:
                     id: bystanders_lab
+                    size_hint: (1,.5)
                     text:""
                     background_color: (8/10.0,8/10.0,0,1)
                     canvas.before:
@@ -349,14 +393,26 @@ WindowManager:
             spacing: 5
 
             Button:
+                id: save_game_btn
                 text:"Save Game"
                 background_color: (0.1,0.1,0.1,1)
-                on_release: root.save_game()
+                on_release: root.confirm_save_game()
 
             Button:
                 text:"Load Game"
                 background_color: (0.1,0.1,0.1,1)
                 on_release: root.load_game()
+
+            Button:
+                text: "Poket Set"
+                background_color: (0.1,0.1,0.1,1)
+                on_release: root.go_to_poketset(self)
+
+            Switch:
+                id: poketset_switch
+                #size_hint: (.4,1)
+                
+                
 
 
 
@@ -585,3 +641,276 @@ WindowManager:
             orientation: 'vertical'
             spacing: 5
             vertical_align: 'top'
+
+
+<PoketSet_Window>:
+    name: "poketset_window"
+
+    BoxLayout:
+        orientation:'vertical'
+        size: root.width, root.height
+
+        spacing: 5
+        padding: 5
+        
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:(1, .15)
+            spacing: 5
+            padding: 5
+
+            Button:
+                size_hint: .15, 1
+                text: ""
+                background_color: (0.1,0.1,0.1,1)
+                background_normal: ""
+                font_size: 90
+                on_release:
+                    app.onBackBtn()
+
+                Image:
+                    source: "gui/img/back.png"
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            Label:
+                #id: instructions
+                text:"Create a Poket Set to Randomize from"
+                background_color:(0,0,8/10.0,1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+            Button:
+                id: search_button_poketset
+                size_hint:(.25,1)
+                background_color: (0.1,0.1,0.1,1)
+
+                on_release:
+                    root.go_to_search(self)
+                    
+                Image:
+                    source: "gui/img/search.png"
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+ 
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:(1,.15)
+            padding: 5
+            spacing: 5
+
+            Label:
+                id: poketset_number_enemies_input
+                text: "# of Enemy Groups"
+                background_color: (119/255.0, 50/255.0, 168/255.0,1)
+
+            TextInput:
+                id: poketset_number_enemies_input
+                input_filter: "int"
+                text: "12"                
+                font_size: 50
+                size_hint:(.25,1)
+                multiline: False
+
+            Label:
+                id: poketset_number_heroes
+                text: "# of Heroes"
+                background_color: (48/255.0,99/255.0,194/255.0,1)
+
+            TextInput:
+                id: poketset_number_heroes_input
+                input_filter: "int"
+                text: "12"
+                font_size: 50
+                size_hint:(.25,1)
+                multiline: False
+                           
+            Button:
+                text:"Create Poket Set"
+                background_color: (0.1,0.1,0.1,1)
+                on_release: root.create_poketset()
+
+                
+        GridLayout:
+            cols:2
+            spacing: 5
+                    
+            BoxLayout:
+
+                orientation:'vertical'
+                size_hint: (.4,1)
+                spacing: 5
+
+                
+
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: 5
+                    size_hint: (1,1)
+
+
+                    Button:
+                        text:"Mastermind"
+                        background_color: (119/255.0, 50/255.0, 168/255.0,1)
+                        on_release: root.change_poketset_masterminds()
+
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+                        
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (119/255.0, 50/255.0, 168/255.0,1)
+                            on_release: root.add_random_mastermind_to_poketset()
+                    
+                        Button:
+                            id: reduce_masterminds_poketset_button
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (119/255.0, 50/255.0, 168/255.0,1)
+                            on_release: root.select_masterminds_to_delete_poketset()
+
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: 5
+                    size_hint: (1,1)
+                                                   
+                    Button:
+                        text:"Villains"
+                        background_color: (1,0,0,1)
+                        on_release: root.change_poketset_villains()
+
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (1,0,0,1)
+                            on_release: root.add_random_villain_to_poketset()
+
+                        Button:
+                            id: reduce_villains_poketset_button
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (1,0,0,1)
+                            on_release: root.select_villains_to_delete_poketset()
+
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: 5
+                    size_hint: (1,.25)
+
+                    Button:
+                        text:"Henchmen"
+                        background_color: (235/255.0, 156/255.0, 38/255.0,1)
+                        on_release: root.change_poketset_henchmen()    
+
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+                    
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (235/255.0, 156/255.0, 38/255.0,1)
+                            on_release: root.add_random_henchman_to_poketset()
+
+                        Button:
+                            id: reduce_henchmen_poketset_button
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (235/255.0, 156/255.0, 38/255.0,1) 
+                            on_release: root.select_henchmen_to_delete_poketset()
+
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: 5
+
+                    Button:
+                        text:"Heroes"
+                        background_color: (48/255.0,99/255.0,194/255.0,1)
+                        on_release:root.change_poketset_heroes()
+
+                    BoxLayout:
+                        orientation:'horizontal'
+                        spacing: 5
+                    
+                        Button:
+                            size_hint: (.2,1)
+                            text: "+"
+                            background_color: (48/255.0,99/255.0,194/255.0,1)
+                            on_release: root.add_random_heroe_to_poketset()
+                        
+                        Button:
+                            id: reduce_heroes_poketset_button                        
+                            size_hint: (.2,1)
+                            text: "-"
+                            background_color: (48/255.0,99/255.0,194/255.0,1)
+                            on_release: root.select_heroes_to_delete_poketset()
+
+                
+
+            BoxLayout:
+
+                orientation:'vertical'
+                spacing:5
+                                      
+                                                
+                Button:
+                    id: poketset_masterminds
+                    size_hint: (1,1)
+                    text:""
+                    background_color: (119/255.0, 50/255.0, 168/255.0,1)
+                    #on_release: root.show_masterminds_keywords(self)
+                               
+                Button:
+                    id: poketset_villains
+                    size_hint: (1,1)
+                    text:""
+                    background_color: (1,0,0,1)
+                    #on_release: root.show_villains_keywords(self)
+                    
+                Button:
+                    id: poketset_henchmen
+                    size_hint: (1,.25)
+                    text:""
+                    background_color: (235/255.0, 156/255.0, 38/255.0,1)
+                    #on_release: root.show_henchmen_keywords(self)
+
+                Button:
+                    id: poketset_heroes
+                    text:""
+                    background_color: (48/255.0,99/255.0,194/255.0,1)
+                    #on_release: root.show_heroes_keywords(self)
+
+                
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint:(1,.15)
+            padding: 5
+            spacing: 5
+
+            Button:
+                id: save_pokeset_btn
+                text:"Save Poket Set"                
+                background_color: (0.1,0.1,0.1,1)
+                on_release: root.confirm_save_poketset()
+
+            Button:
+                text:"Load Poket Set"
+                background_color: (0.1,0.1,0.1,1)
+                on_release: root.load_poketset()
+
+            Button:
+                text: "Reset Poket Set"
+                background_color: (0.1,0.1,0.1,1)
+                on_release: root.reset_poketset()                
